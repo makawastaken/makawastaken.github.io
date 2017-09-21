@@ -1,0 +1,8 @@
+body{
+	font-family:"Open Sans", Arial, Helvetica; 
+}
+#sessionEnded{
+	color:blue;
+	text-align:center;
+	float:left;
+}

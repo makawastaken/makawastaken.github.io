@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!-- This is the front end of the server -->
+  <head>
+    <meta charset="utf-8">
+    <title>General Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load in the socket.io libary to front end -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <link href="styles.css" rel="stylesheet"/>
+  <!--  <link href="chat-generalcss.css" rel="stylesheet"/>-->
+    <!-- Amazing icons thingy site Mr Heng recommended -->
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="mario-chat">
+      <div id="chat-window">
+        <div id="output"></div>
+        <div id="feedback"></div><!-- name is typing a message -->
+      </div><!-- close chat-window -->
+        <input id="handle" type="text" placeholder="Handle" disabled/>
+        <input id="message" type="text" placeholder="Message"/>
+        <button id="send">Send</button>
+
+      <!--  <input id="pm-to" type="text" placeholder="username to pm">
+        <input id="new-pm" type="text" placeholder="private message content">
+        <button id="send-pm">sendpm</button>-->
+        <div class="send-a-pm-collapse">
+				  <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#pmbox" aria-expanded="false" aria-controls="pmbox">
+					Private Message
+				  </button>
+				</div>
+				<div class="collapse" id="pmbox">
+				  <div class="card card-block">
+					<input id="pm-to" type="text" placeholder="username to pm">
+				<input id="new-pm" type="text" placeholder="private message content">
+				<button class="send-marcus-pm"id="send-pm">send private message</button>
+				  </div>
+				</div>
+    </div><!-- close mario chat -->
+    <script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <script src="chat.js"></script>
+
+    <!-- DO NOT TOUCH!!!! -->
+			 <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>

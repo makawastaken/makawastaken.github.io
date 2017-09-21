@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Project home mpage - By Marcus Low">
+	<link href="userProfilePagecss.css" rel="stylesheet"/>
+	<!-- Google fonts -->
+		<!-- imported in CSS -->
+    <!-- Amazing icons thingy site Mr Heng recommended -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script>
+		var retrieveAccessKey = localStorage["Access"];
+			if(retrieveAccessKey != null){
+				retrieveAccessKey = JSON.parse(retrieveAccessKey);
+				var userWithAccess = retrieveAccessKey.username;
+				
+				if(userWithAccess == null){
+					window.location = "../PageExpired/PageExpired.html";
+				}
+			}
+		</script>
+		<script>
+		function myDate(){
+		return Date();
+		}
+		function onSendPressed(){
+			alert("Message successfully sent!");
+			Mailbox = localStorage.getItem("Mailbox");
+			
+			if(Mailbox == null){
+			Mailbox = [];
+			}
+			else{
+				Mailbox = JSON.parse(localStorage["Mailbox"]);
+			}
+			var to = document.getElementById("sendtowho").value;
+			var message = document.getElementById("sendtowhomsg").value;
+			var Access = JSON.parse(localStorage["Access"]);
+			var sendBy = Access.username;
+			var time = myDate();
+			
+			var mailingInfo={"To": to, "From": sendBy, "Message": message, "Time": time};
+			Mailbox.push(mailingInfo);
+			localStorage["Mailbox"] = JSON.stringify(Mailbox);
+		}
+		</script>
+		<script>
+		function retrieveDataFromMailbox()
+		{
+			
+			Mailbox = localStorage.getItem("Mailbox");
+			Mailbox = JSON.parse(localStorage["Mailbox"]);
+			var Access = JSON.parse(localStorage["Access"]);
+			for(i = 0; i < Mailbox.length; i++){	
+					
+					var username = Access.username;
+					var to = Mailbox[i].To;
+					var sendBy = Mailbox[i].From;
+					var message = Mailbox[i].Message;
+					var time = Mailbox[i].Time;
+					if(to == username)
+					{
+					
+					document.write("From: " + sendBy + "<br>" + "To: " + to + "<br>" + "Message: " + message + "<br>" + "Time: " + time);
+					document.write("<br>" + "<br>");
+					
+					
+					
+					//var p = document.createElement("p");
+					//p.innerText = ("From: " + sendBy + "\nTo: " + to + "\nMessage: " + message + "\nTime: " + time);
+					//document.getElementById("themail").appendChild(p);
+					
+				}
+				else{
+				console.log("no mail");
+				}
+			}
+		}	
+			
+			
+		
+
+		</script>
+		
+  </head>
+  <body>
+  			
+    <!--
+	Font-awesome : Working
+	Bootstrap    : Working
+	Jquery       : Working
+	NodeJS       : Installed & Working
+	S.IO         : Installed & Working
+	Media queries: Working (27/7/17)
+	Mobile Compet: Working (27/7/17)
+
+	Last Edited : 18/7/17 206pm - Marcus Low
+	-->
+
+
+<!-- navbar stuff -->
+		<nav class="navbar navbar-toggleable-md navbar-custom navbar-inverse marcus-navcolor">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand marcus-navbarlogo-orange" href="#">Nexus Network&nbsp;&nbsp;</a>
+			<div class="collapse navbar-collapse" id="navbarNav">
+
+			<ul class="navbar-nav">
+			<!-- Navbar items. Links as ahref here.-->
+				<li class="nav-item">
+					<a class="nav-link" href="../../index.html">Home<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../../whysmartnation/WhySmartNation.html">Why Smart Nation?<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a style="color:white;" class="nav-link" href="../login page/loginpage.html">Community<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a style="color:white;"class="nav-link" href="http://localhost:5000/generalchat.html">&nbsp;Chat&nbsp;<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/Events/Events.html">Events<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../../Articles/ArticlesRavamped.html">Articles<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../../Customer Support/About us.html">About Us<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/Customer Support/About us.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Need help?
+					</a>
+					<div style="background-color:#ebebeb;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					  <a class="dropdown-item" href="../../Customer Support/Contact us.html">Contact Us</a>
+					  <a class="dropdown-item" href="../../faq/faq.html">FAQ</a>
+					  <a class="dropdown-item" href="../../sitemap/Sitemap.html">Sitemap</a>
+					  <a class="dropdown-item" href="#">Privacy Policy</a>
+					</div>
+				 </li>
+			
+				</ul>
+				<div class="logout-container"style="float:right;">
+				<a href="../login page/loginpage.html"><button id="logout" class="btn" onclick="onLogout()">Logout</button></a>
+			</div>
+			</nav>
+<!-- navbar html END -->
+
+
+  <!-- content2 -->
+  <div style="padding:0;" class="container-fluid container-marcus-content2">
+    <div class="marcus-color-login">
+    <div class="row marcus-construction-border">
+
+      <div class="container-marcus-logininfo">
+        <div class="marcus-login-image">
+          <img src="loginiconFixed.png"/>
+        </div>
+
+        <div class="marcus-login-inputs">
+          <h1 class="marcus-userinfo-animation"><span id="usernameHere">Username's</span>&nbsp;Profile</h1>
+          <h2 class="marcus-userinfo-animation"><span id="realnameHere">Real Name</span></h2>
+        </div><!-- marcus-login-inputs -->
+
+      </div><!-- closing container-marcus-loginfo -->
+      </div><!-- row -->
+    </div><!-- closing marcus-color-login -->
+  </div><!-- closing content2 -->
+
+
+  <div class="container-fluid container-marcus-content3">
+    <div class="row marcus-content3">
+<div class="marcus-content3-inside">
+    <h1 style="text-align:center;color:white;">Adjust your profile to your liking.</h1>
+    <br/>
+    <div id="accordion"role="tablist" aria-multiselectable="true">
+
+  <div style="border:1px solid orange;margin-top:1%;margin-bottom:1%;" class="card">
+    <!-- #333 color for card -->
+    <div style="background-color:#333;" class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0 marcus-padmar-fixer">
+        <a class="marcus-userprofile-setting" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <i class="fa fa-lock">&nbsp;&nbsp;</i>Change Password
+        </a>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse " role="tabpanel" aria-labelledby="headingOne">
+      <div style="background-color:#333;color:white;" class="card-block">
+        <h4 class="form-group">Enter a new secure password</h4>
+        <form>
+          <input class="marcus-user-input-box form-control form-group" placeholder="Current password" type="password" id="currentPassword"></input>
+          <input class="marcus-user-input-box form-control form-group" placeholder="New Password" type="password" id="brandnewPassword"></input>
+        </form>
+        <button class="btn btn-primary form-group" onclick="passwordChange()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="border:1px solid orange;margin-top:1%;margin-bottom:1%;"  class="card">
+    <div style="background-color:#333;" class="card-header" role="tab" id="headingTwo">
+      <h5 class="mb-0 marcus-padmar-fixer">
+        <a class="marcus-userprofile-setting"  class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <i class="fa fa-user">&nbsp;&nbsp;</i>Change Username
+        </a>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse " role="tabpanel" aria-labelledby="headingTwo">
+      <div  style="background-color:#333;color:white;" class="card-block marcus-collapse-inside">
+        <h4 class="form-group">Enter a new username to your liking</h4>
+        <form>
+          <input class="marcus-user-input-box form-control form-group" placeholder="New username" type="text" id="daNewUsername"></input>
+        </form>
+        <button class="btn btn-primary form-group" onclick="usernameChange()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="border:1px solid orange;margin-top:1%;margin-bottom:1%;"  class="card">
+    <div style="background-color:#333;" class="card-header" role="tab" id="headingThree">
+      <h5 class="mb-0 marcus-padmar-fixer">
+        <a  class="marcus-userprofile-setting" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <i class="fa fa-bookmark-o">&nbsp;&nbsp;</i>My Bookmarks (Beta)
+        </a>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div  style="background-color:#333;color:white;" class="card-block">
+        <div style="text-align:center;width:60%;margin-left:20%;">New bookmarking feature coming soon! you'll be able to view bookmarked articles here.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="border:1px solid orange;margin-top:1%;margin-bottom:1%;"  class="card">
+  <div style="background-color:#333;" class="card-header" role="tab" id="headingFour">
+    <h5 class="mb-0 marcus-padmar-fixer">
+      <a  class="marcus-userprofile-setting" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        <i class="fa fa-pencil-square-o">&nbsp;&nbsp;</i>My Bio
+      </a>
+    </h5>
+  </div>
+  <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+    <div style="background-color:#333;color:white;"  class="card-block">
+      <div class="form-group">
+        <label for="exampleTextarea"><h4>Write about yourself</h4></label>
+        <textarea placeholder="My interests, and why I wana learn more about smart nation and embrace it!"class="form-control" id="exampleTextarea" rows="3"></textarea>
+		</div>
+		
+          <button onclick="storeBio()" class="btn btn-primary form-group">Save Changes</button>
+		
+    </div>
+  </div>
+</div>
+
+<div style="border:1px solid orange;margin-top:1%;margin-bottom:1%;"  class="card">
+  <div style="background-color:#333;" class="card-header" role="tab" id="headingFive">
+    <h5 class="mb-0 marcus-padmar-fixer">
+      <a  class="marcus-userprofile-setting" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        <i class="fa fa-envelope">&nbsp;&nbsp;</i>Change Email
+      </a>
+    </h5>
+  </div>
+  <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+    <div style="background-color:#333;color:white;"  class="card-block">
+      <div class="form-group">
+        <form>
+          <input class="marcus-user-input-box form-control form-group" placeholder="CurrentEmail@address.com" type="email" id="currentEmail"></input>
+          <input class="marcus-user-input-box form-control form-group" placeholder="NewEmail@address.com" type="email" id="newEmail"></input>
+        </form>
+        <button class="btn btn-primary form-group" onclick="emailChange()">Save Changes</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div style="border:1px solid orange;margin-top:1%;margin-bottom:1%;"  class="card">
+  <div style="background-color:#333;" class="card-header" role="tab" id="headingSix">
+    <h5 class="mb-0 marcus-padmar-fixer">
+      <a  class="marcus-userprofile-setting" class="collapsed" onclick="" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        <i class="fa fa-envelope">&nbsp;&nbsp;</i>My Mailbox
+      </a>
+    </h5>
+  </div>
+  <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+    <div style="background-color:#333;color:white;"  class="card-block">
+      <div class="form-group">
+      
+<div class="container-fluid">
+<div class="row">
+			
+				<div class="col-lg-6">
+					
+						<form action="#">
+							<h1>send message</h1>
+							<h3>To:</h3>
+							<input class="form-control" id="sendtowho" placeholder="Username to send to"/>
+							<h3>Message:</h3>
+							<textarea id="sendtowhomsg"placeholder="Message to send" class="form-control"></textarea><br>
+							<button onclick="onSendPressed()" class="btn btn-primary form-group">Send!</button>
+							
+						</form>
+						
+					
+				</div>
+				
+			<div class="col-lg-6">
+				<div id="themail">
+					
+						<h1>My mail</h1>
+						<div style="overflow:scroll;height:500px;" id="themail">
+						
+						<script>
+						retrieveDataFromMailbox();
+						</script>
+						
+						
+						</div>
+						
+				</div>
+				
+			</div>	
+         
+       
+    
+  </div>
+  </div>
+	
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+</div><!-- marcus content3-inside-->
+  </div><!-- row marcus content3-->
+</div><!-- container marcus content3 -->
+
+<div style="padding:0;" class="container-fluid marcus-nice-spacer-container">
+  <div class="marcus-color-idk">
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </div><!-- marcus-color-idk -->
+</div><!-- marcus-nice-spacer-container-->
+
+	<!-- footer content -->
+		<div style="padding:0;"class="footeravan container-fluid">
+			<!-- top container for missions tatement -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="footeravan-header col-lg-12">
+					<h1>"Mission Statement"</h1>
+					<h4 style="width:70%;margin-left:15%;text-align:center;">To get Singaporeans to embrace Smart Nation and understand what it is, mainly
+					adults and teenagers who are reliant on IT daily, educating them on what Smart Nation is, as well as what it's initiatives and benefits are. 
+					At the same time, educate them on the importance of online security in smart nation and safe practices to take to protect themselves online.</h4>
+					</div>
+				</div>
+			</div><!-- closing top container mission statement -->
+			
+
+			<!-- bottom container for info and newsletter -->
+			<div class="container-fluid footeravan-bottom">
+				<div class="row">
+				<!-- left side, lg8 -->
+					<div class="col-lg-8 col-md-8 col-sm-12 footeravan-bottom-left">
+					<div class="avanfooter-location"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Location: Suntec City
+					<br> 3E Temasek Blvd
+					<br> Singapore 038984
+					<br>#5-6748
+
+
+					</p>
+					</div>
+					<div class="avanfooter-contact"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Contact:
+					<br> Telephone: 6384 4386
+					<br> Email: smartnation@moe.edu.sg
+					</p>
+
+					</div>
+					<div class="container">
+					<div class="row">
+
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.facebook.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-facebook-official" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://twitter.com/smartntation" class="marcus-sizer"><i style="color:orange; "class="fa fa-twitter-square" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.instagram.com/smartntation/" class="marcus-sizer"><i style="color:orange; "class="fa fa-instagram" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.snapchat.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-snapchat-square" aria-hidden="true"></i></a></div>
+
+					</div>
+					</div>
+					</div>
+				<!-- right side, lg4 -->
+					<div class="col-lg-4 col-md-4 col-sm-12 footeravan-bottom-right">
+						<p>Enter your email here to subscribe to our Newsletter!</p>
+						<form>
+							<input type="text" style="background-color:#c7f8f8;">
+						</form>
+							<button class="btn btn-primary"onClick="">Submit</button>
+					</div>
+			</div>
+
+		</div>
+		</div><!-- closing footer -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
+	<script src='LogoutScript.js'></script>
+	<script src="userProfilePage.js"></script>
+			<!-- DO NOT TOUCH!!!! -->
+			 <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<!--<script>
+function emailChange(){
+	var oldEmail = document.getElementById("currentEmail").value;
+	var newEmail = document.getElementById("newEmail").value;
+	var storedEmail = mainkey.email;
+	if(oldEmail == storedEmail){
+			
+			console.log("allow change");
+			var Access = JSON.parse(localStorage["Access"]);
+			var newKey = Access.username.toUpperCase();
+			var username = mainkey.username;
+			var gender = mainkey.gender;
+			var password = mainkey.password;
+			var capital = mainkey.capital;
+			var ban = mainkey.ban;
+			
+			var emailChange = {"username":username, "FirstName":daRealname, "password":password, "email":newEmail, "gender":gender, "capital":capital, "ban":ban};
+			localStorage[newKey] = JSON.stringify(emailChange);
+			
+			
+			
+			alert("Your email has been changed sucessfully!");
+		
+	}
+	else{
+		console.log("the input old email is wrong");
+		alert("The old email you input is wrong");
+	}
+	window.location = "userProfilePage.html";
+	
+		
+}
+
+</script> 
+<script>
+var display = displayBio();
+document.getElementById("bio").innerHTML = display;
+</script>-->
+ </body>
+</html>

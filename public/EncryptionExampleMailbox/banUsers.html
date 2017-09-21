@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<style>
+	.areportz:hover{
+		background-color:#d8d8d8;
+		transition:0.3s;
+	}
+	
+	</style>
+	<script>
+	//Admin Access Control List
+	var AdminVerification = localStorage.getItem("Access");
+		AdminVerification = JSON.parse(AdminVerification);
+		if(AdminVerification.username!="Admin" && AdminVerification.username!="admin"){
+			console.log("not admin");
+			window.location = "notfound.html";
+			
+		}
+		else{
+			alert("Welcome, Admin");
+		}
+	</script>
+  </head>
+  <body>
+  <br/>
+ <div class="container-fluid">
+ <div class="row">
+    <div class="container col-lg-6">
+		<h1>Reports</h1>
+		<hr/>
+		<div style="width:80%;height:750px;margin-left:10%;overflow:scroll;"id="readreports">
+		</div>
+	</div>
+<hr/>
+	<div class="container col-lg-6">
+		<h3>Banning System</h3>
+		<p>Admins are reminded to ban users only if the offense has been commited, and 100% proven with visual evidence. Remember, all users are innocent till proven guilty. </p>
+		<hr/>
+		<div class="container">
+			<form action="#">
+				<input type="text" placeholder="username to ban "class="form-group form-control" id="toban">
+				<textarea  class="form-group form-control"placeholder="Why you are banning this user" id="reasonforban"></textarea>
+				<button class="btn btn-danger" onclick="banhammer()">Permanent Ban</button>
+			</form>
+		</div>
+		<p>&copy; Nexus Network 2017. All rights reserved.</p>
+	</div>
+</div><!-- row -->
+</div><!-- container-fluid -->
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script>
+	// functions to fire on $(document).onload
+	document.addEventListener("DOMContentLoaded",function(){
+		retrieveReports();
+	});
+	
+	// retrieve users from localStorage and set a speific user as BANNED "ban":"yes"
+	    function banhammer(){
+			var user = document.getElementById("toban").value; // username to ban
+			if(user.toUpperCase() == "ADMIN"){
+				alert("Admins can't be banned.");
+			}
+			else{
+			banlog();
+			console.log("we're banning"+user);
+			user = user.toUpperCase();
+			console.log("Heat seeking missle on " + user);
+			var key = localStorage.getItem(user);
+			console.log("key found as "+key);
+			key = JSON.parse(key);
+			key.ban = "yes";
+			newkey = JSON.stringify(key);
+			localStorage[user] = newkey;
+			
+			}
+		
+		
+		}
+		
+		// my code...
+		
+		
+		
+	// log of banned users + reason 
+	function banlog(){
+		banlist = localStorage.getItem("banlist");
+		
+		var toban = document.getElementById("toban").value;
+		var reasonforban = document.getElementById("reasonforban").value;
+		
+			if(banlist == null){
+				banlist= [];
+			}
+			else {
+				banlist = JSON.parse(banlist);
+			}
+			
+			// {"username":toban , "reason":reasonforban}
+			aobject = {"username":toban , "reason":reasonforban};
+			banlist.push(aobject);
+			
+			banlist = JSON.stringify(banlist);
+			localStorage.setItem("banlist", banlist)
+			
+			
+	
+	
+	}
+
+	function retrieveReports(){
+	
+		reports = localStorage.getItem("Reports");
+		
+		if(reports == null){
+			reports = [];
+		}
+			else{
+				reports = JSON.parse(reports);
+			}
+				for(i=0; i<reports.length; i++){
+				
+					var offender = reports[i].offender;
+					var reporter = reports[i].reporter;
+					var details =  reports[i].details;
+					var time    =  reports[i].time;
+					
+					var p = document.createElement("p")
+					p.style.fontSize = "18px";
+					p.style.borderBottom = "1px solid orange";
+					p.setAttribute("class", "areportz");
+					p.style.paddingLeft = "10%";
+					p.innerHTML = "Reported by "+reporter + " on "+time +"<br/>" + "Offender username : "+offender+"<br/>"+"Offense commited : "+details+"<br/><hr/>";
+					document.getElementById("readreports").appendChild(p);
+					
+				
+				}
+		
+	}
+	
+	</script>
+  
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+		<html>
+	<head>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<title>Admin Only</title>
+	<script>
+	//Admin Access Control List
+	/*var AdminVerification = localStorage.getItem("Access");
+		AdminVerification = JSON.parse(AdminVerification);
+		if(AdminVerification.username!="Admin"){
+			window.location = "../../notfound.html";
+			
+		}
+		else{
+			alert("Welcome, Admin");
+		}
+	*/
+	
+	</script>
+	
+	
+	</head>
+
+	<body>
+	<!-- copy paste this chunk for reporting -->
+		<div class="container container-marcus-reporting-system">
+		<p>
+		  <a class="btn btn-danger" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+			Report Abusive users 
+		  </a>
+		</p>
+		<div class="collapse" id="collapseExample">
+		  <div class="card card-block">
+			<form action="#">
+				<input type="text" id="reporter" disabled/>
+				<p>Enter the offenders username</p>
+				<input placeholder="Offender's username"class="form-group form-control" type="text" id="offender">
+				<p>Elaborate what they did, and give evidence so we can take action, We will not entertain the report if you do not provide SCREENSHOTS or evidence. False reporting is a serious offense.</p>
+				<textarea  placeholder="What the offender did, upload the screenshot online to a photo hosting site such as imgur.com, and send us the link."class="form-group form-control"id="reason"></textarea>
+				<button class="btn btn-danger" onclick="reportinguser()">Report User</button>
+			</form>
+		  </div>
+		</div>
+		</div><!-- container-marcus-reporting-system -->
+<!--
+<div class="container">
+<h3>Banning System</h3>
+<p>Admins are reminded to ban users only if the offense has been commited, and 100% proven with visual evidence. Remember, all users are innocent till proven guilty. </p>
+<hr/>
+<div class="container">
+	<form>
+		<input type="text" placeholder="username to ban "class="form-group form-control" id="toban">
+		<textarea  class="form-group form-control"placeholder="Why you are banning this user"></textarea>
+		<button class="btn btn-danger" onclick="">Permanent Ban</button>
+	</form>
+</div>-->
+<p>&copy; Nexus Network 2017. All rights reserved.</p>
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+// script for reporting users -Marcus
+	function reporter(){
+		var reporter = localStorage.getItem("Access");
+		reporter = JSON.parse(reporter);
+		reporter = reporter.username;
+		document.getElementById("reporter").value = reporter;
+		console.log('We got the Access username');
+	}
+	function TimeStamp(){
+		var d=new Date();
+		var t = d.toLocaleTimeString();
+		return t;
+}
+	
+		function reportinguser(){
+		reporter();
+		console.log("reporter called");
+			
+			var usertoban = document.getElementById("offender").value;
+			console.log("we're banning"+usertoban);
+			var details = document.getElementById("reason").value;
+			console.log("banning because"+details);
+			// put into localStorage
+			var areport = localStorage.getItem("Reports");
+			
+			if(areport== null){ //if reports isnt found
+				areport = [];
+				console.log("Didnt find Reports in localstorage");
+			}
+			else{ //if reports exists!
+				areport = JSON.parse(areport);
+				console.log("Yes! we found Reports in localStorage.");
+			}	
+				timenow = TimeStamp();
+				newobject = {"offender":usertoban , "reporter":document.getElementById("reporter").value, "details":details, "time":timenow};
+				areport.push(newobject);
+				var finishedreport = JSON.stringify(areport);
+				localStorage.setItem("Reports" , finishedreport);
+				alert("Report successful. We read every report, and will take appropreate action.");
+
+		}//reportinguser(); -Marcus
+
+</script>
+
+
+
+
+
+
+
+
+	<!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+	</body>
+</html>

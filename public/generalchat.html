@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<!-- This is the front end of the server -->
+  <head>
+    <meta charset="utf-8">
+    <title>General Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load in the socket.io libary to front end -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<!--  <link href="styles.css" rel="stylesheet"/>-->
+  <link href="chat-generalcss.css" rel="stylesheet"/>
+    <!-- Amazing icons thingy site Mr Heng recommended -->
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script>
+  var retrieveAccessKey = localStorage["Access"];
+		if(retrieveAccessKey != null){
+			retrieveAccessKey = JSON.parse(retrieveAccessKey);
+			var userWithAccess = retrieveAccessKey.username;
+			
+			if(userWithAccess == null){
+				
+				window.location = "../EncryptionExampleMailbox/PageExpired/PageExpired.html";
+			}
+			
+		}
+		else{
+			// if access key does not exist 
+			window.location = "../EncryptionExampleMailbox/PageExpired/PageExpired.html";
+		}
+  
+  
+  </script>
+  </head>
+  <body>
+    <!-- navbar stuff -->
+    		<nav class="navbar navbar-toggleable-md navbar-custom navbar-inverse marcus-navcolor">
+    			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    				<span class="navbar-toggler-icon"></span>
+    			</button>
+    			<a class="navbar-brand marcus-navbarlogo-orange" href="#">Nexus Network&nbsp;&nbsp;</a>
+    			<div class="collapse navbar-collapse" id="navbarNav">
+
+    			<ul class="navbar-nav">
+			<!-- Navbar items. Links as ahref here.-->
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/whysmartnation/WhySmartNation.html">Why Smart Nation?<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/EncryptionExampleMailbox/login page/loginpage.html">Community<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a style="color:white;"class="nav-link" href="http://localhost:5000/generalchat.html">&nbsp;Chat&nbsp;<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Events/Events.html">Events<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Articles/ArticlesRavamped.html">Articles<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Customer Support/About us.html">About Us<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/Customer Support/About us.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Need help?
+					</a>
+					<div style="background-color:#ebebeb;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					  <a class="dropdown-item" href="/Customer Support/Contact us.html">Contact Us</a>
+					  <a class="dropdown-item" href="/faq/faq.html">FAQ</a>
+					  <a class="dropdown-item" href="/sitemap/Sitemap.html">Sitemap</a>
+					  <a class="dropdown-item" href="#">Privacy Policy</a>
+					</div>
+				 </li>
+				
+				</ul>
+					<div class="logout-container"style="float:right;">
+						<a href="http://localhost:5000/EncryptionExampleMailbox/login page/loginpage.html"><button id="logout" class="btn" onclick="onLogout()">Logout</button></a>
+					</div>
+    			</div>
+    			</nav>
+    <!-- navbar html END -->
+
+        <div class="container-fluid marcus-chat-top">
+          <div class="row">
+
+            <div style="background-color:#1e2124;"class="col-lg-2">
+              <div class="marcus-you-joined-chat-room join-room-animation">
+                <h3>You Joined</h3>
+                <p id="chat-room-top-left">General-chat</p>
+              </div>
+            </div>
+
+            <div  style=""class="col-lg-10">
+              <div class="marcus-chat-room-name-header">
+                <h2 class="join-room-animation-zoom"><span id="chat-room-top-right">#General</span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="Chat-notconnected.html"><i class="fa fa-power-off marcus-poweroff-edit"></i></a></h2>
+
+              </div>
+            </div>
+
+          </div><!-- closing row -->
+        </div><!-- closing marcus-chat-top -->
+
+        <div class="container-fluid marcus-chat-channels-and-ui">
+          <div class="row">
+
+            <div style="padding:0;"class="col-lg-2  marcus-side-color">
+
+              <div class="marcus-chat-tip join-room-animation">
+                <div class="marcus-chat-tip-inside">
+                  <span id="chat-icon-bubble"><i class="fa fa-commenting"></i></span>
+                  <h4 id="random-tip-text"></h4>
+                </div><!-- marcus-chat-tip-inside -->
+              </div><!-- marcus-chat-tip -->
+
+              <div class="marcus-chat-channels join-room-animation">
+
+                <div class="chat-channels-header">
+                  <h2>Chat Channels</h2>
+                </div>
+
+                  <div class="a-chat-channel active">
+                    <a style="color:white;" href=""><h4><i class="fa fa-volume-up"></i>&nbsp;#General</h4></a>
+                  </div><!-- a-chat-channel -->
+                  <div class="a-chat-channel">
+                    <a href="http://localhost:5001/index.html"><h4><i class="fa fa-volume-up"></i>&nbsp;#Events</h4></a>
+                  </div><!-- a-chat-channel -->
+                  <div class="a-chat-channel">
+                    <a href="http://localhost:5002/index.html"><h4><i class="fa fa-volume-up"></i>&nbsp;#Questions</h4></a>
+                  </div><!-- a-chat-channel -->
+                  <div class="a-chat-channel">
+                    <a href="http://localhost:5003/index.html"><h4><i class="fa fa-volume-up"></i>&nbsp;#Off-Topic</h4></a>
+                  </div><!-- a-chat-channel -->
+                  <div style="padding-left:2%;"class="a-chat-channel">
+                    <a href="http://localhost:5000/Customer support/Contact us.html"><h4>&nbsp;+Suggest new channel?</h4></a>
+                  </div><!-- a-chat-channel -->
+
+
+
+
+              </div><!-- marcus-chat-channels -->
+            </div><!-- col-lg-3 -->
+
+            <div style="padding:0;"class="col-lg-10 marcus-the-actual-chat">
+    		<!--
+    		     <div id="mario-chat">
+
+    				  <div id="chat-window">
+    					<div id="output"></div>
+    					<div id="feedback"></div>--><!-- name is typing a message -->
+    				 <!-- </div>--><!-- close chat-window -->
+    				  <!--
+    				<input id="handle" type="text" placeholder="Handle" disabled/>
+    				<input id="message" type="text" placeholder="Message"/>
+    				<button id="send">Send</button>
+
+
+    				<div class="send-a-pm-collapse">
+    				  <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#pmbox" aria-expanded="false" aria-controls="pmbox">
+    					Private Message
+    				  </button>
+    				</div>
+    				<div class="collapse" id="pmbox">
+    				  <div class="card card-block">
+    					<input id="pm-to" type="text" placeholder="username to pm">
+    				<input id="new-pm" type="text" placeholder="private message content">
+    				<button class="send-marcus-pm"id="send-pm">send private message</button>
+    				  </div>
+    				</div>-->
+    				<!--
+    				<input id="pm-to" type="text" placeholder="username to pm">
+    				<input id="new-pm" type="text" placeholder="private message content">
+    				<button id="send-pm">sendpm</button>-->
+            <div id="mario-chat">
+              <div id="chat-window">
+                <div id="output"></div>
+                <div id="feedback"></div><!-- name is typing a message -->
+              </div><!-- close chat-window -->
+                <input id="handle" type="text" placeholder="Handle" disabled/>
+              <div style="margin-top:2.5%;">
+                <input style="display:inline-block;width:85%;"class="form-control"tabindex="1"id="message" type="text" placeholder="Message"/>
+                <button  style="display:inline-block;"id="send"><i class="fa fa-paper-plane"></i></button>
+              </div>
+              <!--  <input id="pm-to" type="text" placeholder="username to pm">
+                <input id="new-pm" type="text" placeholder="private message content">
+                <button id="send-pm">sendpm</button>-->
+                <div class="send-a-pm-collapse">
+                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#pmbox" aria-expanded="false" aria-controls="pmbox">
+                  Private Message
+                  </button>
+                </div>
+                <div class="collapse" id="pmbox">
+                  <div class="card card-block">
+                  <input id="pm-to" type="text" placeholder="username to pm (caps sensitive!)">
+                <input id="new-pm" type="text" placeholder="private message content">
+                <button class="send-marcus-pm"id="send-pm">send private message</button>
+                  </div>
+                </div>
+				<!-- copy paste this chunk for reporting -->
+		<div style="text-align:center;"class="container container-marcus-reporting-system">
+		<p>
+		  <a class="btn btn-danger" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+			Report Abusive users 
+		  </a>
+		</p>
+		<div class="collapse" id="collapseExample">
+		  <div class="card card-block">
+			<form action="#">
+				<input type="text" id="reporter" disabled/>
+				<p>Enter the offenders username</p>
+				<input placeholder="Offender's username"class="form-group form-control" type="text" id="offender">
+				<p>Elaborate what they did, and give evidence so we can take action, We will not entertain the report if you do not provide SCREENSHOTS or evidence. False reporting is a serious offense.</p>
+				<textarea  placeholder="What the offender did, upload the screenshot online to a photo hosting site such as imgur.com, and send us the link."class="form-group form-control"id="reason"></textarea>
+				<button class="btn btn-danger" onclick="reportinguser()">Report User</button>
+			</form>
+		  </div>
+		</div>
+		</div><!-- container-marcus-reporting-system -->
+            </div><!-- close mario chat -->
+            </div>
+
+          </div><!-- closing row -->
+        </div><!-- marcus-chat-channels-and-ui -->
+
+    	<!-- footer content -->
+    		<div style="padding:0;"class="footeravan container-fluid">
+
+    			<!-- top container for missions tatement -->
+    			<div class="container-fluid">
+    				<div class="row">
+    					<div class="footeravan-header col-lg-12">
+    					<h1>"Mission Statement"</h1>
+    					</div>
+    				</div>
+    			</div><!-- closing top container mission statement -->
+
+    			<!-- bottom container for info and newsletter -->
+    			<div class="container-fluid footeravan-bottom">
+    				<div class="row">
+    				<!-- left side, lg8 -->
+    					<div class="col-lg-8 col-md-8 col-sm-12 footeravan-bottom-left">
+    					<div class="avanfooter-location"style="border-left: solid orange 3px;">
+    					<p style="padding-left:5px;"> Location: Suntec City
+    					<br> 3E Temasek Blvd
+    					<br> Singapore 038984
+    					<br>#5-6748
+
+
+    					</p>
+    					</div>
+    					<div class="avanfooter-contact"style="border-left: solid orange 3px;">
+    					<p style="padding-left:5px;"> Contact:
+    					<br> Telephone: 6384 4386
+    					<br> Email: smartnation@moe.edu.sg
+    					</p>
+
+    					</div>
+    					<div class="container">
+    					<div class="row">
+
+    					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="#" class="marcus-sizer"><i style="color:orange; "class="fa fa-facebook-official" aria-hidden="true"></i></a></div>
+    					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="#" class="marcus-sizer"><i style="color:orange; "class="fa fa-twitter-square" aria-hidden="true"></i></a></div>
+    					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="#" class="marcus-sizer"><i style="color:orange; "class="fa fa-instagram" aria-hidden="true"></i></a></div>
+    					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="#" class="marcus-sizer"><i style="color:orange; "class="fa fa-snapchat-square" aria-hidden="true"></i></a></div>
+
+    					</div>
+    					</div>
+    					</div>
+    				<!-- right side, lg4 -->
+    					<div class="col-lg-4 col-md-4 col-sm-12 footeravan-bottom-right">
+    						<p>Enter your email here to subscribe to our Newsletter!</p>
+    						<form>
+    							<input type="text" style="background-color:#c7f8f8;">
+    						</form>
+    							<button class="btn btn-primary"onClick="">Submit</button>
+    					</div>
+    			</div>
+
+    		</div>
+    		</div><!-- closing footer -->
+
+    <script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <script src="chat.js"></script>
+<script src="LogoutScript.js"></script>
+<script>
+// script for reporting users -Marcus
+	function reporter(){
+		var reporter = localStorage.getItem("Access");
+		reporter = JSON.parse(reporter);
+		reporter = reporter.username;
+		document.getElementById("reporter").value = reporter;
+		console.log('We got the Access username');
+	}
+	function TimeStamp(){
+		var d=new Date();
+		var t = d.toLocaleTimeString();
+		return t;
+}
+	
+		function reportinguser(){
+		reporter();
+		console.log("reporter called");
+			
+			var usertoban = document.getElementById("offender").value;
+			console.log("we're banning"+usertoban);
+			var details = document.getElementById("reason").value;
+			console.log("banning because"+details);
+			// put into localStorage
+			var areport = localStorage.getItem("Reports");
+			
+			if(areport== null){ //if reports isnt found
+				areport = [];
+				console.log("Didnt find Reports in localstorage");
+			}
+			else{ //if reports exists!
+				areport = JSON.parse(areport);
+				console.log("Yes! we found Reports in localStorage.");
+			}	
+				timenow = TimeStamp();
+				newobject = {"offender":usertoban , "reporter":document.getElementById("reporter").value, "details":details, "time":timenow};
+				areport.push(newobject);
+				var finishedreport = JSON.stringify(areport);
+				localStorage.setItem("Reports" , finishedreport);
+				alert("Report successful. We read every report, and will take appropreate action.");
+
+		}//reportinguser(); -Marcus
+
+</script>
+    <!-- DO NOT TOUCH!!!! -->
+			 <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>

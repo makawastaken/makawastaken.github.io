@@ -1,0 +1,180 @@
+/*
+	CSS for login page
+	Don't change HREF
+	-Marcus
+
+	Working & functional
+*/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900');
+html, body {width:100%; padding:0; margin:0;}
+
+body{
+	font-family:'Source Sans Pro', sans-serif, "Helvetica Neue",Helvetica,Arial;
+}
+.container-marcus-content1{
+	background:url("NiceCoverPhotoGreece.jpg") no-repeat fixed center;
+}
+/* adjust size of content1 div with shade */
+#marcus-color1{
+	background-color:rgba(0,0,0,0.6);
+	padding-top:5%;
+	padding-bottom:1%;
+}
+.marcus-content1-header{
+	width:80%;
+	margin-left:10%;
+	text-align:center;
+}
+.marcus-content1-header-text{
+	text-transform:uppercase;
+	color:#fff; /* change to #fff later */
+	font-weight:600;
+	letter-spacing:;
+	font-size:px;
+	line-height:1;
+	font-family: Arial,sans-serif;
+	display:fixed;
+}
+.marcus-content1-header-text2{
+	color:white;
+}
+.marcus-login-content-text{
+	width:50%;
+	margin-left:25%;
+}
+/* content2 */
+.marcus-construction-border{
+}
+.container-marcus-content2{
+	background:url('NiceCoverPhotoGreece.jpg') no-repeat fixed center;
+}
+.marcus-color-login{
+	background-color:rgba(0,0,0,0.6);
+	padding-bottom:10%;
+}
+/* actual login container */
+.container-marcus-logininfo{
+	width:80%;
+	text-align:center;
+	margin-left:10%;
+	padding:3%;
+}
+.marcus-login-image{
+	margin:1.5%;
+}
+.marcus-login-inputs{
+	/* contains
+	form
+	username
+	password
+	login button
+	*/
+}
+.marcus-login-username{
+	border:1px solid orange;
+	border-radius:100px;
+	display:inline-block;
+	/* paddng:TOP/BOT R/L */
+	padding:3px 16px;
+	margin:1%;
+	background-color:#ebebeb;
+	font-size:1.5rem;
+
+}
+.marcus-login-username:hover{
+	background-color:#d8d8d8;
+	transition:0.3s;
+	font-size:1.525em;
+	color:orange;
+}
+.marcus-login-username-input{
+	color:black;
+	background-color:#ebebeb;
+	border:none;
+	width:80%;
+}
+.marcus-login-password{
+	border:1px solid orange;
+	border-radius:100px;
+	display:inline-block;
+	/* paddng:TOP/BOT R/L */
+	padding:3px 16px;
+	margin:1%;
+	background-color:#ebebeb;
+	font-size:1.5rem;
+}
+.marcus-login-password:hover{
+	background-color:#d8d8d8;
+	transition:0.3s;
+	font-size:1.525em;
+	color:orange;
+}
+.marcus-login-password-input{
+	color:black;
+	background-color:#ebebeb;
+	border:none;
+	width:80%;
+}
+.marcus-login-button{
+	margin:1%;
+	text-align:center;
+}
+.alreadyhave-text{
+	color:white;
+}
+#errMsg{
+	color:red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* IMPORTED FROM HOMECSS */
+/* Header Text from Graivity */
+.marcusheader-text {
+	text-transform:uppercase;
+	color:#fff; /* change to #fff later */
+	font-weight:700;
+	letter-spacing:;
+	font-size:49px;
+	line-height:1;
+	font-family: Arial,sans-serif;
+	display:fixed;
+}
+.line-below-text-etc{
+	height:3.5px;
+	/* orignal : background:rgba(51,51,51,0.35); */
+	background:orange;
+	width:50%;
+	margin-left:25%;
+	margin-top:1rem;
+}
+/* Removes orange glitch in button menu */
+@media only screen and (max-width:1000px) and (min-width:1px){
+	.marcus-navbarlogo-orange{
+		border:none;
+	}
+}
+@media only screen and (min-width:1024px){
+	.marcus-navbarlogo-orange{
+		border-right:3px solid orange;
+	}
+}

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Project home mpage - By Marcus Low">
+	<link href="homecss.css" rel="stylesheet"/>
+	<!-- Google fonts -->
+		<!-- imported in CSS -->
+    <!-- Amazing icons thingy site Mr Heng recommended -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <!--
+	Font-awesome : Working
+	Bootstrap    : Working
+	Jquery       : Working
+	NodeJS       : Installed & Working
+	S.IO         : Installed & Working
+	Media queries: Working (27/7/17)
+	Mobile Compet: Working (27/7/17)
+
+	Last Edited : 18/7/17 206pm - Marcus Low
+	-->
+
+		<!-- Top stuff -->
+		<h1 style="display:none;" id="top-most-marcus" style="z-index:-1;">Put navbar here, z-index = -1;</h1>
+
+<!-- navbar stuff -->
+		<nav class="navbar navbar-toggleable-md navbar-custom navbar-inverse marcus-navcolor ">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand marcus-navbarlogo-orange" href="#">Nexus Network&nbsp;&nbsp;</a>
+			<div class="collapse navbar-collapse" id="navbarNav">
+
+			<ul class="navbar-nav">
+			<!-- Navbar items. Links as ahref here.-->
+				<li class="nav-item">
+					<a style="color:white;" class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/whysmartnation/WhySmartNation.html">Why Smart Nation?<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/EncryptionExampleMailbox/login page/loginpage.html">Community<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/generalchat.html">&nbsp;Chat&nbsp;<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/Events/Events.html">Events<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Articles/ArticlesRavamped.html">Articles<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Customer Support/About us.html">About Us<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/Customer Support/About us.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Need help?
+					</a>
+					<div style="background-color:#ebebeb;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					  <a class="dropdown-item" href="/Customer Support/Contact us.html">Contact Us</a>
+					  <a class="dropdown-item" href="/faq/faq.html">FAQ</a>
+					  <a class="dropdown-item" href="http://localhost:5000/sitemap/Sitemap.html">Sitemap</a>
+					  <a class="dropdown-item" href="http://localhost:5000/privacypolicy/privacypolicy.html">Privacy Policy</a>
+					</div>
+				 </li>
+				
+				</ul>
+				<div class="logout-container"style="float:right;padding-left:1%;">
+					<a href="http://localhost:5000"><button id="logout" style="display : none;" class="btn" onclick="onLogout()">Logout</button></a>
+				</div>
+			</div>
+			</nav>
+
+
+			<div class="marcus-cbd-video"><!-- CBD skyline gif -->
+			<!-- by object-fit:full , it tells the video to fill up the given space it is given. -->
+			<!-- so in order to adjust the video height/width, adjust the one for the div containing the video -->
+			<video style="object-fit:fill;" id="skyline" width="100%" height="100%"  loop autoplay>
+				<source src="http://agbeducation.com.sg/wp-content/uploads/2016/08/shutterstock_v90079961.mp4.mp4" type="video/mp4">
+			</video>
+      </div> <!-- closing CBD div -->
+
+			<!-- text on top of CBD video -->
+			<div class="container-marcusheader-text element-animation">
+			<h1 class="marcusheader-text">
+				<span id="randommsgone">"Smart Nation"</span>
+					<br>
+				<span id="randommsgtwo">is a nation where</span>
+					<br>
+				<span id="randommsgthree">the people are smart</span>
+			</h1>
+			</div>
+
+			<!-- sexy hr line below header text -->
+			<hr class="marcus-line-below-text"></hr>
+			<br/><!-- spacer -->
+			<br/>
+
+			<!-- that's a very interesting statement, -->
+			<div class="container-marcusheader2-text element-animation2">
+				<h2 style="color:white;" class="marcusheader2-text">That's a very interesting statement. What do you think?<h2>
+			</div>
+
+			<!-- is that true? -->
+			<div class="container-marcusheader3-text">
+				<a id="smoothclicky"  class="marcusheader3-text" href="#marcus-anchor">Is That True?&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a>
+			</div>
+
+			<!-- Naise bouncing fa_dblArrow -->
+			<div class="container">
+			<div class="container-marcusarrow marcusarrow-tada-animation">
+				<a id="smoothclicky1" class="marcusarrow-color" href="#marcus-anchor"><i class="fa fa-angle-double-down"></i></a>
+			</div>
+			</div>
+
+			<div id="marcus-anchor-2" class="marcusspacer">
+			<!-- spacer! set margins -->
+			</div>
+
+	<!-- content1 NOPE THATS NOT TRUE, WHAT EXATLY IS SN -->
+    <div style="padding-left:0;padding-right:0;"id="marcus-anchor" class="container-fluid container-marcus-bottom">
+		<!-- darken the mbs bridge img -->
+		<div id="marcus-color">
+			<!-- hEADER in content1 -->
+			<div class="container-nope-not-true">
+				<h1 class="nope-not-true">
+				NOPE, THAT'S NOT TRUE!
+					<br/>
+				<span class="what-exactly-is">WHAT EXACTLY IS "SMART NATION?"</span>
+				</h1>
+				<hr class="line-nope-not-true"></hr>
+
+			</div><!-- close nope-not-true -->
+
+			<!-- so text dont stick beside hr SPACER -->
+			<div style="margin-top:3%;"></div>
+
+			<div class="container-marcus-sn-definition">
+				<!-- unveiled by PM LEE in 2014.....-->
+				<h2 class="marcus-sn-definition" style="color:white;">
+				<i class="fa fa-quote-left"></i>
+				&nbsp;Unveiled by Prime Minister Lee Hisen Loong in 2014,<br/>
+				
+				Smart Nation is Singapore's national effort to co-create a future of better living through all tech-enabled solutions.
+				The goal of the initiative is transforming Singapore into a highly advanced,
+				integrated technological hub striving to develop people-centric solutions to address global urban challanges.
+				<!--It aims to co-create a future of better living
+				through all tech-enabled solutions-->
+				<!--Smart Nation is Singapore's national effort to co-create a future of better living for all through tech-enabled solutions. 
+				It aims to rally the collective efforts of people, businesses and government to work together to support better living, c
+				reate more opportunities, and support stronger communities by harnessing info-comm technologies, networks and big data.
+				Through strategic deployment of technology across the nation, leveraging on investments in digital infrastructure, 
+				a tech savvy population and a single layer government that can work quickly to coordinate policies and synergise efforts,
+				the Smart Nation initiative strives to develop people-centric solutions to address global urban challenges-->&nbsp;
+				<i class="fa fa-quote-right"></i>
+				</h2>
+
+			</div>
+			<div class="hotaf-line-idk"><hr class="line-nope-not-true"></hr></div>
+
+			<div class="marcus-content1-final">
+				<p class="marcus-content1-text">Interesting, isn't it? <br/>
+				So What does the Future hold?
+				</p>
+			</div>
+			<!-- spacer -->
+			<div class="content1-bottom-spacer"></div>
+
+		</div> <!-- marcus-color close -->
+		<!-- DO NOT PUT ANYTHING BETWEEN THESE 2 DIVS -->
+	</div><!-- content1 close -->
+
+		<!-- Content2  -->
+		<div id="marcus-anchor-3"class="container-fluid container-marcus-content2">
+      <!-- what the futue holds -->
+      <div class="container-content2-header">
+        <h1 class="content2-header-text">What Smart Nation Holds for us &nbsp;<a id="smoothclicky2" href="#marcus-anchor-3"><i class="fa fa-angle-double-down"></i></a></h1>
+        <h2>Explore the amazing possibilities.</h2>
+        <hr class="line-below-text-etc"></hr>
+      </div>
+
+      <div class="container-fluid container-marcus-articles">
+			<section class="row marcus-articles">
+<!--
+			<article class="col-lg-4">
+			   <h1><i class="fa fa-subway"></i>&nbsp;Transportation</h1>
+         <p class="makashi">Imagine buses and trains never breaking down or having delays. Driverless cars cruise effortlessly over the roads and your destination is always reachable, with minimal time travelling.</p>
+      </article>
+
+      <article class="col-lg-4">
+        <h1><i class="fa fa-mobile"></i>&nbsp;Convenience</h1>
+        <p class="makashi">Imagine before you step foot into the house, the air conditioning is on and dinner is already made. Your house is fully customizable and controllable from your SmartPhone.</p>
+      </article>
+
+        <article class="col-lg-4">
+           <h1><i class="fa fa-user-md"></i>&nbsp;Healthcare</h1>
+           <p class="makashi"> Never go to the clinic again. The clinic comes to you. Doctors can consult you from your home through a specialized medical camera, and can consult you through real-time video chat.</p>
+        </article>
+-->
+
+        <div class="media col-lg-3 marcus-article">
+          <img src="/Photos/transportation.png" class="d-flex mr-3 makaimg">
+          <div style=""class="media-body marcus-icon-neat-text">
+            <h3 class="marcus-article-name">Transportion</h5>
+          <p class="marcus-article-text"> Imagine buses and trains never breaking down or having delays. Driverless cars cruise effortlessly over the roads and your destination is always reachable, with minimal time travelling.</p>
+          <a href="https://www.smartnation.sg/initiatives/Mobility/self-driving-vehicles-sdvs--future-of-mobility-in-singapore">Learn more&nbsp;<i class="fa fa-angle-double-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media col-lg-3 marcus-article">
+        <img src="/Photos/convenience.png" class="d-flex mr-3 makaimg">
+        <div class="media-body marcus-icon-neat-text">
+          <h3 class="marcus-article-name">Convenience</h5>
+        <p class="marcus-article-text"> Imagine before you step foot into the house, the air-con is on and dinner is already made. Your house is fully customizable and controllable from your SmartPhone.</p>
+        <a href="https://www.smartnation.sg/initiatives/Living/smart-homes--tech-enabled-solutions-for-homes-in-singapore-1">Learn more&nbsp;<i class="fa fa-angle-double-right"></i></a>
+      </div>
+    </div>
+
+    <div class="media col-lg-3 marcus-article">
+      <img src="/Photos/healthcare.png" class="d-flex mr-3 makaimg">
+      <div class="media-body marcus-icon-neat-text">
+        <h3 class="marcus-article-name">Healthcare</h5>
+      <p class="marcus-article-text"> Never go to the clinic again. The clinic comes to you. Patients can consult, have their health monitored, and rehabilitate all in the comfort of their homes.</p>
+      <a href="https://www.smartnation.sg/initiatives/Health/telehealth--integrated-and-seamless-healthcare-services-at-home">Learn more&nbsp;<i class="fa fa-angle-double-right"></i></a>
+    </div>
+  </div>
+
+  <div class="media col-lg-3 marcus-article">
+    <img src="/Photos/employment.png" class="d-flex mr-3 makaimg">
+    <div class="media-body marcus-icon-neat-text">
+      <h3 class="marcus-article-name">Employment</h5>
+    <p class="marcus-article-text">With a smart nation, it's time to upgrade your job to a smart job. Singapore Government works closely with our indistrual partners for Skillsfuture, an initiative to upgrade your skills.</p>
+    <a href="http://www.skillsfuture.sg/what-is-skillsfuture.html">Learn more&nbsp;<i class="fa fa-angle-double-right"></i></a>
+  </div>
+</div>
+      </section>
+      </div><!-- closing container for section -->
+		</div><!-- closing content2 -->
+
+    <div id="marcus-anchor-content3"style="padding-left:0;padding-right:0;"class="container-fluid container-content3">
+      <div id="marcus-color2">
+      <div class="content3-header">
+      <h1 class="content3-header-text">When Did Smart Nation start?&nbsp;<a id="sn-start-smoothclicky" href="#marcus-anchor-content3"><i class="fa fa-angle-double-down"></i></a></h1>
+      <h2 style="color:white;font-style:italic;">"24 November, 2014"</h2>
+	  <!-- reusing content5 header css, take note. -->
+	  <hr class="line-below-content5-header"></hr>
+    </div><!-- closing content3-->
+    <!-- Holds pic of PM LEE on left, and facts on the RIGHT -->
+    <div class="content3-container-inside row">
+        <div class="col-lg-5">
+
+            <div class="card card-inverse marcus-pmleeimg-nice-spacing">
+              <img class="img-fluid card-img" src="pmlee.jpg">
+              <p class="marcus-pmlee-top"> Pm Lee Announcing Smart Nation, <span style="font-size:18;">2014</span> </p>
+          <!--  <div style="margin:0;padding:0;bottom:0;position:absolute;" class="card-img-overlay">
+              <div class="pmlee-overlay-text">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>card img overlay -->
+        </div><!-- closing div card-inverse -->
+        </div><!-- closing the LEFT col-lg-6 -->
+        <!-- spacer -->
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-6 marcus-content3-right">
+
+              <div class="media marcus-icon-neat-spacing marcus-sn-facts-hover">
+                <img class="d-flex mr-3" height="120" width="120"src="/Photos/the beginning.png" alt="Generic placeholder image">
+                  <div class="media-body marcus-icon-neat-text">
+                    <h3 class="mt-0 marcus-article-name" style="color:white;">The Begining.</h5>
+                      <p class="marcus-article-text2"style="color:white;">
+                        Singapore's Smart Nation Initiative was officially launched <br/> by PM Lee on 24 November, 2014.
+                      </p>
+                  </div>
+              </div>
+
+            <div class="media marcus-icon-neat-spacing marcus-sn-facts-hover">
+              <img class="d-flex mr-3" height="120" width="120"src="/Photos/mmanaging office.png" alt="Generic placeholder image">
+                <div class="media-body marcus-icon-neat-text">
+                  <h3 class="mt-0 marcus-article-name" style="color:white;">Managing Office</h5>
+                    <p class="marcus-article-text2"style="color:white;">
+                      The Initiative is cordinated by the Smart Nation and Digital Government Office
+                       (SNDGO) in the Prime Minister's office (PMO) and by other government agencies.
+                     </p>
+                </div>
+            </div>
+
+            <div class="media marcus-icon-neat-spacing marcus-sn-facts-hover">
+              <img class="d-flex mr-3" height="120" width="120"src="/Photos/spearheading minister.png" alt="Generic placeholder image">
+                <div class="media-body marcus-icon-neat-text">
+                  <h3 class="mt-0 marcus-article-name" style="color:white;">Spearheading Minister</h5>
+                    <p class="marcus-article-text2"style="color:white;">
+                      Minister Vivian Balakrishnan was officially appointed Minister-In-Charge of the Smart Nation Initiative.
+                      </p>
+                </div>
+            </div>
+
+        </div><!-- closing the RIGHT col-lg-6 -->
+
+    </div><!-- closing row container -->
+  </div><!-- closing marcus-color-2 -->
+  </div><!-- closing content3 -->
+
+  <!-- content4 -->
+  <!-- Did you know sn logo -->
+  <div id="marcus-anchor-content4" class="container-fluid container-marcus-content4">
+<div class="marcus-content4-color">
+    <div class="marcus-content4-header">
+      <h1> Did you know?&nbsp;<a id="sn-start-smoothclicky2" href="#marcus-anchor-content4"><i class="fa fa-angle-double-down"></i></a></h1>
+      <h3> The official Smart Nation Logo looks like this! </h3>
+    </div>
+    <!-- the smart nation logo IMG -->
+<a href="https://www.smartnation.sg/">
+    <div class="marcus-content4-logo">
+      <img class="img-fluid" src="snlogo.png"/>
+    </div><!-- closing marcus-content4-logo -->
+  </a>
+  <div class="marcus-content4-logo-bottomtext">
+  <p style="font-weight:bold;"> Click the image for the official Smart Nation site </p>
+</div>
+  </div><!-- closing content4 color -->
+</div><!-- closing content4 -->
+
+<!-- BUT WHY EMBRACE SMART NATION -->
+<div style="padding:0;"class="container-fluid container-marcus-content5">
+  <div class="marcus-content5-color">
+    <div class="marcus-content5-header">
+      <h1> BUT WHY EMBRACE SMART NATION?</h1>
+      <hr class="line-below-content5-header"></hr>
+    </div>
+    <!-- find out why a_button -->
+    <div class="row">
+    <div class="container-content5-abutton col-lg-12 col-md-12 col-sm-12">
+      <a href="/whysmartnation/WhySmartNation.html" id="towhysn" class="marcus-content5-abutton">Find Out Why&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a>
+    </div>
+  </div><!-- temp row -->
+
+  </div>
+</div><!-- closing content5-->
+
+<!-- footer content -->
+		<div style="padding:0;"class="footeravan container-fluid">
+
+			<!-- top container for missions tatement -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="footeravan-header col-lg-12">
+					<h1>"Mission Statement"</h1>
+					<h4 style="width:70%;margin-left:15%;text-align:center;">To get Singaporeans to embrace Smart Nation and understand what it is, mainly
+					adults and teenagers who are reliant on IT daily, educating them on what Smart Nation is, as well as what it's initiatives and benefits are. 
+					At the same time, educate them on the importance of online security in smart nation and safe practices to take to protect themselves online.</h4>
+					</div>
+				</div>
+			</div><!-- closing top container mission statement -->
+
+			<!-- bottom container for info and newsletter -->
+			<div class="container-fluid footeravan-bottom">
+				<div class="row">
+				<!-- left side, lg8 -->
+					<div class="col-lg-8 col-md-8 col-sm-12 footeravan-bottom-left">
+					<div class="avanfooter-location"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Location: Suntec City
+					<br> 3E Temasek Blvd
+					<br> Singapore 038984
+					<br>#5-6748
+
+
+					</p>
+					</div>
+					<div class="avanfooter-contact"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Contact:
+					<br> Telephone: 6384 4386
+					<br> Email: smartnation@moe.edu.sg
+					</p>
+
+					</div>
+					<div class="container">
+					<div class="row">
+
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.facebook.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-facebook-official" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://twitter.com/smartntation" class="marcus-sizer"><i style="color:orange; "class="fa fa-twitter-square" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.instagram.com/smartntation/" class="marcus-sizer"><i style="color:orange; "class="fa fa-instagram" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.snapchat.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-snapchat-square" aria-hidden="true"></i></a></div>
+
+					</div>
+					</div>
+					</div>
+				<!-- right side, lg4 -->
+					<div class="col-lg-4 col-md-4 col-sm-12 footeravan-bottom-right">
+						<p>Enter your email here to subscribe to our Newsletter!</p>
+						<form>
+							<input id="waiken" type="email" style="background-color:#c7f8f8;">
+              <button class="btn btn-primary" onClick="onSubmitPressed()"><a class="link-fixer-marcus"href="#bottom-marcus">Submit</a></button>
+						</form>
+
+					</div>
+			</div>
+
+		</div>
+		</div><!-- closing footer -->
+    <span id="bottom-marcus"></span>
+		<!-- test stuff to delete -->
+		<!--
+		<div style="width:100%;height:2000px;">
+		<p> SAMPLE TEXT </p><p> SAMPLE TEXT </p><p> SAMPLE TEXT </p><p> SAMPLE TEXT </p><p> SAMPLE TEXT </p><p> SAMPLE TEXT </p><p> SAMPLE TEXT </p><p> SAMPLE TEXT </p><p> SAMPLE TEXT </p><p> SAMPLE TEXT </p>
+		</div>-->
+
+	<!-- IGNORE, DO NOT TOUCH -->
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script src="LogoutScript.js"></script>
+	<!-- might break something, remove optional -->
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  	<script>
+    // Marcus's smooth scrolling function
+	$(document).ready(function(){
+	  // Add smooth scrolling to all links
+	  $("#smoothclicky, #smoothclicky1, #smoothclicky2, #sn-start-smoothclicky,#sn-start-smoothclicky2").on('click', function(event) {
+
+		// Make sure this.hash has a value before overriding default behavior
+		if (this.hash !== "") {
+		  // Prevent default anchor click behavior
+		  event.preventDefault();
+
+		  // Store hash
+		  var hash = this.hash;
+
+		  // Using jQuery's animate() method to add smooth page scroll
+		  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+		  $('html, body').animate({
+			scrollTop: $(hash).offset().top
+    }, 1020, function(){
+
+			// Add hash (#) to URL when done scrolling (default click behavior)
+			window.location.hash = hash;
+		  });
+		} // End if
+	  });
+	});
+	</script>
+
+  <script>
+  // Avan's js click function
+  rapidwatch();
+  function rapidwatch(){
+    setInterval(
+    function marcusWatch(){
+    var d=new Date();
+    var t = d.toLocaleTimeString();
+    document.getElementById("top-most-marcus").innerHTML ="Singapore, " + t + "< PROTOTYPE CLOCK DUN TOUCH";
+  },1000)
+}
+  </script>
+  <script src="homejs.js"></script>
+
+  <script>
+ function onSubmitPressed(){
+
+ WaikenMail = localStorage.getItem("WaikenMail");
+
+ if(WaikenMail == null){
+   WaikenMail = [];
+ } else {
+   WaikenMail= JSON.parse(localStorage["WaikenMail"]);
+ }
+ var email= document.getElementById("waiken").value;
+
+ var userInfo={"email":email};
+ WaikenMail.push(userInfo);
+ localStorage["WaikenMail"]=JSON.stringify(WaikenMail);
+
+  alert("successfully signed up for mailing list");
+  document.getElementById("waiken").value="";
+  }
+
+  </script>
+
+  <script>
+	/* Logic
+	set waikenmail as localStorage key
+	if doesnt exist, create it.
+	else parse the waiken mail.
+	now run through it and print stuff out with a for loop
+	write the stuff retrieved into the document.
+	*/
+	   function retrieveData()
+	   {
+			WaikenMail = localStorage.getItem("WaikenMail");
+
+			if(WaikenMail == null){
+				WaikenMail = [];
+			}
+			else{
+				WaikenMail = JSON.parse(localStorage["WaikenMail"]);
+
+				for(i = 0; i < WaikenMail.length; i++)
+				{
+					var email = WaikenMail[i].email;
+					console.log(email);
+
+				}
+
+			}
+		}
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

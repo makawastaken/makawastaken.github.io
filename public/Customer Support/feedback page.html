@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8"/>
+	<title>Feedback page</title>
+	<style>
+	body{
+		padding-left:1%;
+	}
+	</style>
+		<script>
+	//Admin Access Control List
+	var AdminVerification = localStorage.getItem("Access");
+		AdminVerification = JSON.parse(AdminVerification);
+		if(AdminVerification.username!="Admin" && AdminVerification.username!="admin"){
+			console.log("not admin");
+			window.location = "notfound.html";
+			
+		}
+		else{
+			alert("Welcome, Admin");
+		}
+	</script>
+	<script>
+		function retrieveDataFromStorage()
+		{
+			usersInfo = localStorage.getItem("usersInfo");
+		  
+			if(usersInfo == null){
+				usersInfo = [];
+			}
+			else{
+				usersInfo = JSON.parse(localStorage["usersInfo"]);
+			
+				for(i = 0; i < usersInfo.length; i++)
+				{
+					var name = usersInfo[i].username;
+					var age = usersInfo[i].userage;
+					var gender = usersInfo[i].usergender;
+					var email = usersInfo[i].useremail;
+					var number = usersInfo[i].usernumber;
+					var datalist = usersInfo[i].userdatalist;
+					var feedback = usersInfo[i].userfeedback;
+					var time = usersInfo[i].time;
+				
+					document.write("Name: " + name + "<br>" + "Age: " + age + "<br>" + "Gender: " + gender + "<br>" + "Email: " + email + "<br>" + "Number: " + number + "<br>" + "Type of Feedback: " + datalist + "<br>" + "Feedback: " + feedback + "<br>" + "Time: " + time + "<br>");
+					document.write("<br>");
+					
+					
+				
+					
+					
+				}
+				
+			}
+		}
+		
+		
+	</script>
+
+	
+	</head>
+	
+	<body>
+	<h1>Users Information:</h1>
+	<div id="kxoptionlist">
+		<label for="typeoffeedback">Type of feedback:</label>
+			<input list="kxfilter" id="kunxiangfilterdata" onchange="filter()"><br>
+			<datalist id="kxfilter">
+			<option value="Technical problem">
+			<option value="Suggestions">
+			<option value="Administrations">
+			<option value="Website aesthetics">
+			<option value="Message">
+	</div>
+	<br>
+	<div id="kxscript" style="overflow:scroll;height:600px;">
+		<script>
+			retrieveDataFromStorage();
+		</script>
+	</div>
+
+	<script>
+	function filter()
+	{
+			var data = document.getElementById("kunxiangfilterdata").value;
+			document.write("<h1>Users Feedback for " + data + ":</h1>");
+			document.write("<div style='overflow:scroll; height:600px;'>");
+			//document.write("<div id='kxoptionlist'><label for='typeoffeedback'>Type of feedback:</label><input list='kxfilter' id='kunxiangfilterdata' onchange='filter()'><br><datalist id='kxfilter'><option value='Technical problem'><option value='Suggestions'><option value='Administrations'><option value='Website aesthetics'><option value='Message'></div><br>");
+				for(i = 0; i < usersInfo.length; i++)
+				{ 
+					usersInfo = localStorage.getItem("usersInfo");
+					usersInfo = JSON.parse(localStorage["usersInfo"]);
+						var name = usersInfo[i].username;
+						var age = usersInfo[i].userage;
+						var gender = usersInfo[i].usergender;
+						var email = usersInfo[i].useremail;
+						var number = usersInfo[i].usernumber;
+						var datalist = usersInfo[i].userdatalist;
+						var feedback = usersInfo[i].userfeedback;
+						var time = usersInfo[i].time;
+					
+					if(data == datalist)
+					{
+					
+					document.write("Name: " + name + "<br>" + "Age: " + age + "<br>" + "Gender: " + gender + "<br>" + "Email: " + email + "<br>" + "Number: " + number + "<br>" + "Type of Feedback: " + datalist + "<br>" + "Feedback: " + feedback + "<br>" + "Time: " + time + "<br>");
+					document.write("<br>");
+					
+					}
+					else
+					{
+					document.write("");
+					}
+				
+				
+				}
+					document.write("</div>" + "<br>");
+					document.write("<a href='feedback page.html'><button>Click here to go back</button></a>");
+	}
+			
+			
+		
+	</script>
+
+
+	</body>
+</html>

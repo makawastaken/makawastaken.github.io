@@ -1,0 +1,100 @@
+<!doctype html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8">
+			<title>Admin Page</title>
+			<style></style>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+			<script>
+			function retrieveDataFromStorage()
+		{
+			queryInfo = localStorage.getItem("queryInfo");
+		  
+			if(queryInfo == null){
+				queryInfo = [];
+			}
+			else{
+				queryInfo = JSON.parse(localStorage["queryInfo"]);
+			
+				for(i = 0; i < queryInfo.length; i++)
+				{
+					var name = queryInfo[i].subjectname;
+					var info = queryInfo[i].questioninfo;
+					var time = queryInfo[i].time;
+				
+					document.write("Type: " + name + "<br>" + "Info: " + info + "<br>" + "Time: " + time + "<br>");
+					document.write("<br>");
+					
+					
+				
+					
+					
+				}
+				
+			}
+		}
+		</script>
+		</head>
+		<body>
+		<h3>Welcome, Admin. All queries are shown below, and sorting through topics can be selected.</h3>
+			
+			
+			
+			<div>
+			<label for="avanselectlist">Select Subject here.</label>
+			<select id="avanselectlist" class="custom-select" onchange="avanFilterActivate()">
+			<option value="All">All</option>
+			<option value="General">General</option>
+		  <option value="Accounts">Accounts</option>
+		  <option value="Chats">Chats</option>
+		  <option value="Others">Others</option>
+		  </select>
+		  </div> 
+		  
+		  
+		<script>
+		function avanFilterActivate(){
+			var data= document.getElementById("avanselectlist").value;
+			document.write("<h1>You are viewing queries for "+ data +"</h1>");
+			
+			for(i = 0; i < queryInfo.length; i++)
+				{ 
+					queryInfo = localStorage.getItem("queryInfo");
+					queryInfo = JSON.parse(localStorage["queryInfo"]);
+						var subject = queryInfo[i].subjectname;
+						var query = queryInfo[i].questioninfo;
+						var time = queryInfo[i].time;
+					
+					
+					
+					
+					
+					if(data == subject)
+					{
+					document.write("Subject Name: " + subject+ "<br>" + "Question Info: "+ query + "<br>" + "Time written: " + time);
+					document.write("<br>");
+					
+					}
+					else
+					{
+						document.write("");
+					}
+				
+				
+				}
+				document.write("<br><a href='Feedback Admin.html'><button>Click here to go back</button></a>");
+	}
+			
+		
+		</script>  
+		  
+		  <div style="avanscript">
+			<h1>Question:</h1> <br>
+			 <script>
+				retrieveDataFromStorage();
+			  </script>
+		  </div>
+		
+		
+		
+		</body>

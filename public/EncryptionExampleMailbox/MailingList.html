@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+		<html>
+	<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Admin Only</title>
+		<style>
+		body{
+			font-family: Arial;
+		}
+		</style>
+	<script>
+	//Admin Access Control List
+	var AdminVerification = localStorage.getItem("Access");
+		AdminVerification = JSON.parse(AdminVerification);
+		if(AdminVerification.username!="Admin" && AdminVerification.username!="admin"){
+			console.log("not admin");
+			window.location = "notfound.html";
+			
+		}
+		else{
+			alert("Welcome, Admin");
+		}
+
+	/* Logic
+	set waikenmail as localStorage key
+	if doesnt exist, create it.
+	else parse the waiken mail.
+	now run through it and print stuff out with a for loop
+	write the stuff retrieved into the document.
+	*/
+	   function retrieveData()
+	   {
+			WaikenMail = localStorage.getItem("WaikenMail");
+
+			if(WaikenMail == null){
+				WaikenMail = [];
+			}
+			else{
+				WaikenMail = JSON.parse(localStorage["WaikenMail"]);
+
+				for(i = 0; i < WaikenMail.length; i++)
+				{
+					var email = WaikenMail[i].email;
+					var newp = document.createElement("p");
+					newp.innerHTML=email;
+					document.getElementById("mailing-list").appendChild(newp);
+
+				}
+
+			}
+		}
+	</script>
+
+	</head>
+
+	<body>
+
+<h1 style="color:red;">Admin Access Only!</h1>
+<h4 style="color:red;"> Warning : No unauthorized access, violators will be prosecuted to the full extent of the law.</h4>
+<hr/>
+<h3>Mailing list</h3>
+<p>Admins are reminded that any form of abuse for this list, be it collecting personal information of visitors for personal use and disclosure is strictly prohibited.<br/> Violation will result in prosecution to the full extent of Singapore law on Disclosure Act, section 23</p>
+<hr/>
+<h3>Mailing List Recipients</h3>
+<div style="width:20%;height:auto;border:1px solid black;padding-left:5%;"id="mailing-list"></div>
+<p>&copy; Nexus Network 2017. All rights reserved.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+	retrieveData();
+	</script>
+
+	</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- LOGIN SUCCESSFUL PAGE -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Project home mpage - By Marcus Low">
+	<link href="loginSuccessfulcss.css" rel="stylesheet"/>
+	<!-- Google fonts -->
+		<!-- imported in CSS -->
+    <!-- Amazing icons thingy site Mr Heng recommended -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script>
+		var retrieveAccessKey = localStorage["Access"];
+		if(retrieveAccessKey != null){
+			retrieveAccessKey = JSON.parse(retrieveAccessKey);
+			var userWithAccess = retrieveAccessKey.username;
+			
+			if(userWithAccess == null){
+				
+				window.location = "../PageExpired/PageExpired.html";
+			}
+			
+		}
+		else{
+			// if access key does not exist 
+			window.location = "../PageExpired/PageExpired.html";
+		}
+	</script>
+  </head>
+  <body>
+    <!--
+	Font-awesome : Working
+	Bootstrap    : Working
+	Jquery       : Working
+	NodeJS       : Installed & Working
+	S.IO         : Installed & Working
+	Media queries: Working (27/7/17)
+	Mobile Compet: Working (27/7/17)
+
+	Last Edited : 18/7/17 206pm - Marcus Low
+	-->
+
+
+<!-- navbar stuff -->
+		<nav style="background-color:rgba(0,0,0,0.4);" class="navbar navbar-toggleable-md navbar-custom navbar-inverse marcus-navcolor fixed-top">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand marcus-navbarlogo-orange" href="#">Nexus Network&nbsp;&nbsp;</a>
+			<div class="collapse navbar-collapse" id="navbarNav">
+
+			<ul class="navbar-nav">
+			<!-- Navbar items. Links as ahref here.-->
+				<li class="nav-item">
+					<a class="nav-link" href="../../index.html">Home<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../../whysmartnation/WhySmartNation.html">Why Smart Nation?<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a  style="color:white;"class="nav-link" href="#">Community<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/generalchat.html">&nbsp;Chat&nbsp;<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/Events/Events.html">Events<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../../Articles/ArticlesRavamped.html">Articles<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../../Customer Support/About us.html">About Us<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/Customer Support/About us.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Need help?
+					</a>
+					<div style="background-color:#ebebeb;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					  <a class="dropdown-item" href="../../Customer Support/Contact us.html">Contact Us</a>
+					  <a class="dropdown-item" href="../../faq/faq.html">FAQ</a>
+					  <a class="dropdown-item" href="../../sitemap/Sitemap.html">Sitemap</a>
+					  <a class="dropdown-item" href="#">Privacy Policy</a>
+					</div>
+				 </li>
+			
+				</ul>
+				<div class="logout-container"style="float:right;">
+				<a href="../login page/loginpage.html"><button id="logout" class="btn" onclick="onLogout()">Logout</button></a>
+			</div>
+			</div>
+			</nav>
+<!-- navbar html END -->
+
+  <!-- content -->
+
+
+  <div style="padding:0;" class="container-fluid container-marcus-content1">
+    <div class="marcus-content1-color">
+      <div class="marcus-content1-inside">
+        <div class="marcus-content1-header successful-login-animation">
+          <h1>Welcome, <span id="welcomeUsr" class="users"></span></h1>
+          <br/>
+          <h2 id="avan-jsclock" class="avan-jsclock">Please wait&nbsp;<i class="fa fa-circle-o-notch fa-spin"></i></h2>
+
+            <div class="marcus-content1-header-sub">
+              <h1 style="margin-bottom:2%;">What is your goal for today?</h1>
+              <input style="width:50%;margin-left:25%;"id="todayGoal" class="form-group marcus-task-input form-control" placeholder="I want to...." type="text" value=""></input><button class="btn marcus-smallspacer marcus-custom-button"style="background-color:#5cb85c;color:white;" onclick="storeGoals()">Set Goal&nbsp;<i class="fa fa-paper-plane"></i></button>
+            </div><!-- closing marcus-content1-header-sub-->
+			<br/>
+			<div style="display:none;"id="admin-controlz"><button class="btn btn-danger"><a style="color:white;" href="../banUsers.html">User Management (Admin)</a></button></div>
+			<div style="display:none;"id="admin-controlz2"><button class="btn btn-warning"><a style="color:white;" href="../Feedback Admin.html">&nbsp;&nbsp;&nbsp;FAQ Feedback (Admin)&nbsp;&nbsp;&nbsp;</a></button></div>
+			<div style="display:none;"id="admin-controlz3"><button class="btn btn-success"><a style="color:white;" href="../MailingList.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mailing List (Admin)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></button></div>
+			<div style="display:none;"id="admin-controlz4"><button class="btn btn-primary"><a style="color:white;" href="../../Customer support/feedback page.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact us feedback&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></button></div>
+		</div><!-- marcus-content1-header-->
+      </div><!-- closing marcus-content1-inside -->
+    </div><!-- closing marcus-content1-color -->
+  </div><!-- closing container-marcus-content1-->
+
+  <div style="padding:0;border-top:1px solid white;" class="selectionbar-bounce"class-"container-fluid container-marcus-content2">
+    <div class="marcus-content2-wrapper">
+    <div class="marcus-content2-header">
+    <h2><span id="wheretogo" class="users"></span>, &nbsp;where to?</h2>
+  </div><!-- content2header close -->
+
+    <div class="row">
+	<!-- profile -->
+	<div class="col-lg-3">
+        <div class="marcus-left-chat">
+          <a class="marcus-chat-href" href="../Profile Page/userProfilePage.html"><h1 class="marcus-location-hover-clickable">My Profile</h1></a>
+          <hr class="marcus-nice-line"/>
+          <h4 class="marcus-desc-below-line"> Change your settings, password,username, and mailbox.</h4>
+        </div><!-- marcus-left-chat -->
+      </div><!-- chat lg4 close -->
+      <!-- chat -->
+      <div class="col-lg-3">
+        <div class="marcus-left-chat">
+          <a class="marcus-chat-href" href="../../generalchat.html"><h1 class="marcus-location-hover-clickable">Chat</h1></a>
+          <hr class="marcus-nice-line"/>
+          <h4 class="marcus-desc-below-line"> Connect & Communicate live with awesome people!</h4>
+        </div><!-- marcus-left-chat -->
+      </div><!-- chat lg4 close -->
+      <!-- forums -->
+      <div class="col-lg-3">
+        <div class="marcus-mid-forums">
+          <a class="marcus-forums-href"  href="http://localhost:5000/Events/Events.html"><h1>Events</h1></a>
+            <hr class="marcus-nice-line"/>
+          <h4 class="marcus-desc-below-line">The latest buzz and events are the talk here!</h4>
+        </div><!-- marcus-mid-forums -->
+      </div><!-- forums lg4 close -->
+      <!-- articles -->
+      <div class="col-lg-3">
+        <div class="marcus-right-articles">
+          <a  class="marcus-articles-href" href="../../Articles/ArticlesRavamped.html"><h1>Articles</h1></a>
+            <hr class="marcus-nice-line"/>
+          <h4 class="marcus-desc-below-line"> A vast knowledge center, always updated with the latest news.</h4>
+        </div><!-- marcus-right-articles -->
+      </div><!-- articlels lg4 -->
+
+    </div><!-- row -->
+  </div><!-- wrapper -->
+  </div><!-- container-marcus-content2 -->
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- footer content -->
+		<div style="padding:0;"class="footeravan container-fluid">
+
+			<!-- top container for missions tatement -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="footeravan-header col-lg-12">
+					<h1>"Mission Statement"</h1>
+					<h4 style="width:70%;margin-left:15%;text-align:center;">To get Singaporeans to embrace Smart Nation and understand what it is, mainly
+					adults and teenagers who are reliant on IT daily, educating them on what Smart Nation is, as well as what it's initiatives and benefits are. 
+					At the same time, educate them on the importance of online security in smart nation and safe practices to take to protect themselves online.</h4>
+					</div>
+				</div>
+			</div><!-- closing top container mission statement -->
+
+			<!-- bottom container for info and newsletter -->
+			<div class="container-fluid footeravan-bottom">
+				<div class="row">
+				<!-- left side, lg8 -->
+					<div class="col-lg-8 col-md-8 col-sm-12 footeravan-bottom-left">
+					<div class="avanfooter-location"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Location: Suntec City
+					<br> 3E Temasek Blvd
+					<br> Singapore 038984
+					<br>#5-6748
+
+
+					</p>
+					</div>
+					<div class="avanfooter-contact"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Contact:
+					<br> Telephone: 6384 4386
+					<br> Email: smartnation@moe.edu.sg
+					</p>
+
+					</div>
+					<div class="container">
+					<div class="row">
+
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.facebook.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-facebook-official" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://twitter.com/smartntation" class="marcus-sizer"><i style="color:orange; "class="fa fa-twitter-square" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.instagram.com/smartntation/" class="marcus-sizer"><i style="color:orange; "class="fa fa-instagram" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.snapchat.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-snapchat-square" aria-hidden="true"></i></a></div>
+
+					</div>
+					</div>
+					</div>
+				<!-- right side, lg4 -->
+					<div class="col-lg-4 col-md-4 col-sm-12 footeravan-bottom-right">
+						<p>Enter your email here to subscribe to our Newsletter!</p>
+						<form>
+							<input type="text" style="background-color:#c7f8f8;">
+						</form>
+							<button class="btn btn-primary"onClick="">Submit</button>
+					</div>
+			</div>
+
+		</div>
+		</div><!-- closing footer -->
+
+    <!-- my function fires only AFTER body loads do not change this -avan -->
+    <script>
+    rapidwatch();
+    function rapidwatch(){
+      setInterval(
+      function marcusWatch(){
+      var d=new Date();
+      var t = d.toLocaleTimeString();
+      document.getElementById("avan-jsclock").innerHTML ="Singapore, " + t;
+    },1000)
+    }
+    </script>
+		<script>
+	//Admin Access Control List -Marcus
+	var AdminVerification = localStorage.getItem("Access");
+		AdminVerification = JSON.parse(AdminVerification);
+		if(AdminVerification.username!="Admin" && AdminVerification.username!="admin"){
+			console.log("Normal User");
+			document.getElementById("admin-controlz").style.display = "none";
+			document.getElementById("admin-controlz2").style.display = "none";
+			document.getElementById("admin-controlz3").style.display = "none";
+			document.getElementById("admin-controlz4").style.display = "none";
+			
+		}
+		else{
+			console.log("Admin detected");
+			document.getElementById("admin-controlz").style.display = "block";
+			document.getElementById("admin-controlz2").style.display = "block";
+			document.getElementById("admin-controlz3").style.display = "block";
+			document.getElementById("admin-controlz4").style.display = "block";
+			
+		}
+	</script>
+	<script src="LogoutScript.js"></script>
+
+	<script src="loginSuccessful.js"></script>
+			<!-- DO NOT TOUCH!!!! -->
+			 <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>

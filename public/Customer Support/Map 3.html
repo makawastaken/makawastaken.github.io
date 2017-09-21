@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8"/>
+  <title>Amk Branch Map</title>
+  <style>
+	#map3 {
+        height:750px;
+        width: 100%;
+		
+		}
+  </style>
+  </head>
+  <body>
+  	
+
+    <div id="map3"></div>
+	<script>
+      function initMap3() {
+        var angmokio = {lat: 1.3694, lng: 103.8488};
+        var map = new google.maps.Map(document.getElementById("map3"), {
+          zoom: 18,
+          center: angmokio
+        });
+        var marker = new google.maps.Marker({
+          map: map,
+		  position: angmokio
+          
+        });
+      }
+    </script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTXo2C0e0CH5jmGI6oG4MYJBnVlne8i3k&callback=initMap3">
+    </script>
+	
+	
+	
+  </body>
+</html>

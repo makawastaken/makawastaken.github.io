@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="portview" content="width=device-width, initial-scale=1" >
+	<title>forgot password?</title>
+	<link href="reset.css" rel="stylesheet"></link>
+</head>
+<body>
+	<fieldset id="resetPassword-fieldset">
+		<h1>Forgot your password?</h1>
+		<h2>No worries!</h2>
+		<h2>Just follow the steps through to change it!</h2>
+		 
+		 <progress id="progressBar" value="0" max="100" style="width:250px"></progress>
+		 <h3 id="status">Phase 1 of 3</h3>
+		 
+		<form id="multiphase" onsubmit="return false">
+			<div id="beckham-phase1">
+				<h2>Input your username and Email here!</h2>
+				<span id="askUsername">Username:</span>
+				<input id="getUsername" name="username" placeholder="Your Username" onkeydown="errMsgClearer1()"/><br>
+				<span id="askEmail">Email: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<input id="getEmail" name="email" placeholder="Your Email" onkeydown="errMsgClearer1()"/><br>
+				<br>
+				<span id="wrongIn" class="error-Need-Style"></span>
+				<br>
+				<button onclick="processPhase1()">Continue</button>
+			</div>
+			
+			<div id="beckham-phase2">
+				<h2>Input passcode sent to you!</h2>
+				<span id="passCode-span">Passcode:</span>
+				<input id="passCode" name="passcode" placeholder="Type Passcode" onkeydown="errMsgClearer2()"/><br>
+				<span id="passErr" class="error-Need-Style"></span>
+				
+				<button onclick="processPhase2()">Continue</button>
+			</div>
+			
+			<div id="beckham-phase3">
+				<h2>Now change your password!</h2>
+				<span id="resetPass">New password:</span>
+				<input id="newpassword" name="newpassword" type="password" placeholder="min 8 characters" onkeydown="errMsgClearer3()"/><br>
+				<span id="reErr" class="error-Need-Style"></span>
+				<br>				
+				<button onclick="processPhase3()">Continue</button>
+			</div>
+			
+			<div id="beckham-phase4">
+				<span id="">Congratulation!<br>
+				You have sucessfully change your password!<br>
+				Click the button below to go to login page!
+				</span>
+								
+				<button onclick="processPhase4()">To Login</button>
+			</div>
+			
+		</form>
+		
+	</fieldset>
+	<div>
+		<a href="../login page/loginpage.html">Back to login page</a>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
+	<script src="reset.js"></script>
+</body>
+</html>

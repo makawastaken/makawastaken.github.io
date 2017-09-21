@@ -1,0 +1,189 @@
+<><!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="portview" content="width=device-width, initial-scale=1">
+	<title>Events</title>
+	<meta name="description" content="Project home mpage - By Marcus Low">
+	<link href="Events.css" rel="stylesheet"/>
+	<!-- Google fonts -->
+		<!-- imported in CSS -->
+    <!-- Amazing icons thingy site Mr Heng recommended -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <!--
+	Font-awesome : Working
+	Bootstrap    : Working
+	Jquery       : Working
+	NodeJS       : Installed & Working
+	S.IO         : Installed & Working
+	Media queries: Working (27/7/17)
+	Mobile Compet: Working (27/7/17)
+
+	Last Edited : 18/7/17 206pm - Marcus Low
+	-->
+
+
+<!-- navbar stuff -->
+		<nav class="navbar navbar-toggleable-sm navbar-custom navbar-inverse marcus-navcolor fixed-top">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand marcus-navbarlogo-orange" href="#">Nexus Network&nbsp;&nbsp;</a>
+			<div class="collapse navbar-collapse" id="navbarNav">
+			
+			<ul class="navbar-nav">
+			<!-- Navbar items. Links as ahref here.-->
+				<li class="nav-item">
+					<a class="nav-link" href="../index.html">Home<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../whysmartnation/WhySmartNation.html">Why Smart Nation?<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../EncryptionExampleMailbox/login page/loginpage.html">Community<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/generalchat.html">&nbsp;Chat&nbsp;<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a  style="color:white;"class="nav-link" href="http://localhost:5000/Events/Events.html">Events<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../Articles/ArticlesRavamped.html">Articles<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Customer Support/About us.html">About Us<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="../Customer Support/About us.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Need help?
+					</a>
+					<div style="background-color:#ebebeb;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					  <a class="dropdown-item" href="../Customer Support/Contact us.html">Contact Us</a>
+					  <a class="dropdown-item" href="../faq/faq.html">FAQ</a>
+					  <a class="dropdown-item" href="../sitemap/Sitemap.html">Sitemap</a>
+					   <a class="dropdown-item" href="http://localhost:5000/privacypolicy/privacypolicy.html">Privacy Policy</a>
+					</div>
+				 </li>
+				
+				</ul>
+				<div class="logout-container">
+					<a href="Events.html"><button id="logout" class="logout-button btn" onclick="onLogout()">Logout</button></a>
+				</div>
+			</div>
+			</nav>
+			<br>
+			<br>
+<!-- navbar html END -->
+	<!-- main contents -->
+		<div class="events-container">
+			<div id="beckham-events">
+				<h2 >Upcoming events<h2>
+						<div class="container" style="border:1px solid grey;">
+							<div id="accordion" role="tablist" aria-multiselectable="true">
+							</div>
+						</div>
+			</div> 
+			<div id="beckham-event">
+			<div style="width:70%;margin-left:15%;"><!-- container -->
+					<div style="width:70%;margin-left:15%;"id="containerOftheForumSubs">
+						<h2>Have an Event in mind you want to share?</h2>
+						<p>Add your Events here!</p>
+					</div>
+					<div style="width:70%;margin-left:15%;" id="ask-question">
+						<div id="event-data" class="containers form-group">
+							<input type="textbox" class="form-control" placeholder="Event Title" id="event" />
+						</div>
+						<div class="spacers"></div>
+						<div id="details-data" class="containers  form-group">
+							<textarea placeholder="Event Details" class="form-control" height="100%" id="details" width="100%"></textarea>
+						</div>
+						<div id="venue-data" class="containers  form-group">
+							<input placeholder="Event venue" type="text" class="form-control" height="100%" id="venue" width="100%"></input>
+						</div>
+						<br>
+						<div id="submit-div">
+							<button id="submitQuestion" class="btn btn-lg btn-success"onclick="storedata()">Post</button>
+						</div>
+						</div>
+			</div><!-- container -->
+		</div>
+	</div>
+<!-- footer content -->
+		<div style="padding:0;"class="footeravan container-fluid">
+			
+			<!-- top container for missions tatement -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="footeravan-header col-lg-12">
+					<h1>"Mission Statement"</h1>
+					<h4 style="width:70%;margin-left:15%;text-align:center;">To get Singaporeans to embrace Smart Nation and understand what it is, mainly
+					adults and teenagers who are reliant on IT daily, educating them on what Smart Nation is, as well as what it's initiatives and benefits are. 
+					At the same time, educate them on the importance of online security in smart nation and safe practices to take to protect themselves online.</h4>
+					</div>
+				</div>
+			</div><!-- closing top container mission statement -->
+			
+			<!-- bottom container for info and newsletter -->
+			<div class="container-fluid footeravan-bottom">
+				<div class="row">
+				<!-- left side, lg8 -->
+					<div class="col-lg-8 col-md-8 col-sm-12 footeravan-bottom-left">
+					<div class="avanfooter-location"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Location: Suntec City
+					<br> 3E Temasek Blvd  
+					<br> Singapore 038984
+					<br>#5-6748
+					
+					
+					</p>
+					</div>
+					<div class="avanfooter-contact"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Contact: 
+					<br> Telephone: 6384 4386
+					<br> Email: smartnation@moe.edu.sg
+					</p>
+					
+					</div>
+					<div class="container">
+					<div class="row">
+					
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.facebook.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-facebook-official" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://twitter.com/smartntation" class="marcus-sizer"><i style="color:orange; "class="fa fa-twitter-square" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.instagram.com/smartntation/" class="marcus-sizer"><i style="color:orange; "class="fa fa-instagram" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.snapchat.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-snapchat-square" aria-hidden="true"></i></a></div>
+					
+					</div>
+					</div>
+					</div>
+				<!-- right side, lg4 -->		
+					<div class="col-lg-4 col-md-4 col-sm-12 footeravan-bottom-right">
+						<p>Enter your email here to subscribe to our Newsletter!</p>
+						<form>
+							<input type="text" style="background-color:#c7f8f8;">
+						</form>
+							<button class="btn btn-primary"onClick="">Submit</button>
+					</div>
+			</div>
+			
+		</div>
+		</div><!-- closing footer -->
+			
+			
+			
+			
+			<!-- DO NOT TOUCH!!!! -->
+			 <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script src="LogoutScript.js"></script>
+	<script src="Events.js"></script>
+	
+	
+</body>
+</html>

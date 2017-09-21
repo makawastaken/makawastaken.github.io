@@ -1,0 +1,95 @@
+<====! Version 1.3 changelog 11/7/2017!=====>
+  =First live, unique update to port 5000=
+
+	-Finally! You can press the enter button to send messages, hooray!
+	-div#chat-window { background-color:#f3f3f3;} // easier see, i guess?
+	-Added meta viewport for easy mobile compatibility (surprisingly, my padding & margins already made it mobile compatible!)
+	-Added font-family to body for a sexier GUI and text formatting. 
+	
+
+	How pressing the enter button works:
+	
+	1. attach an event listener 'change' to the message input
+	2. (built into js) if you press, enter - it will exceute a function (if u attached a function to addEventListener)
+	3. It emits chat message data to all sockets through this callback function
+	4. I am so happy right now, here is a virtual hug.
+
+	CODE:
+	// IN THE div#message , pressing enter will emit the chat to all sockets
+	//oh my god i took an entire week to figure this OUT YAYAYYYYYY MY GOD YESSSSSSSSSS 
+	
+	message.addEventListener("change", function(){
+ 	     socket.emit('chatmsg',{ // chatmsg first initiation
+   		message: message.value, // get value of message input field
+   	        handle: handle.value
+  		});
+	});
+
+	
+
+<====! The life of port 5000 is a clone from here onwards !====>
+<====! Version 1.2 changelog 7/7/2017!=====>
+
+	-Emergency Bugfix
+	BUG: if a user is typing, and another user sends a message, the first user's chat will be cleared.
+	FIXED: only client will clear message box.
+	-Client who just joined recieves a client "You joined a room" exclusive message
+	-Chat is now informed if a user left the chat (previously, only users that join)
+	-previous versions likely obselete from here on due to core modules just built here. 
+
+
+
+<====! Version 1.1 changelog 7/7/2017!=====>
+	
+	-Existing users are now informed when a new user joins the chat
+	-did a custom css for the "new user joined!" chat display
+	-All previous functions retained
+
+
+
+
+
+
+<====! Version 1.0 changelog 6/7/2017!=====>
+	
+	-getting express app and creating a webserver listening on a specific port (4000)
+	-Created a server and live chat 
+	-Clears the message box after message is sent for easy usage 
+	-First Basic working function 
+
+
+
+
+
+<====! The Begining of Life 5/7/2017!=====>
+
+	-Basic chat functions,
+	-getting express app and creating a webserver listening on a specific port (4000)
+	-Able to have users chat live-time, with name and message
+
+
+
+
+
+
+<====! Future implimentations !====>
+	
+	-Enter button miss tay consultation 
+	-Add font-family for a sexy af text.
+	-Auto scrolling down to next message if div is full
+	-Press enter button to send message instead of clicking it manually 
+	-show who's online
+	-List who has disconnected from the chat 
+	-add private messaging 
+	-on 'connection' display how many users are already online (on new user screen)
+	-Censor swear words
+	-Ability to format text through a GUI
+	-My chat float:right; Other users float:left; 
+
+Patch cross-scripting vulnerbility in chat (can type in html tags and destroy the page) 
+
+****discovered by kun xiang
+	- ability to format text color & text highlight (NOT <p> color)
+	- if we type this in the Message bar <span style="color:background-color:">MESSAGE</span>
+	then the message will become in formatted text. find a way to add this dynamically 
+	This span coloring can also be applicable to the username! (handle) 

@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8"/>
+  <title>Nex Branch Map</title>
+  <style>
+	#map2 {
+        height: 750px;
+        width: 100%;
+		
+		}
+  </style>
+  </head>
+  <body>
+ 
+    <div id="map2"></div>
+	<script>
+      function initMap2() {
+        var nex = {lat: 1.3508, lng: 103.8722};
+        var map = new google.maps.Map(document.getElementById("map2"), {
+          zoom: 18,
+          center: nex
+        });
+	   var marker = new google.maps.Marker({
+          map: map,
+		  position: nex
+          
+        });
+      }
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTXo2C0e0CH5jmGI6oG4MYJBnVlne8i3k&callback=initMap2">
+	</script>
+	</body>
+</html>

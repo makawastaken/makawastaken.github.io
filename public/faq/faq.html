@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Project home mpage - By Marcus Low">
+	<link href="FAQEDD.css" rel="stylesheet"/>
+	<!-- Google fonts -->
+		<!-- imported in CSS -->
+    <!-- Amazing icons thingy site Mr Heng recommended -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<title>Frequently Asked Questions</title>
+  </head>
+  <body>
+    <!--
+	Font-awesome : Working
+	Bootstrap    : Working
+	Jquery       : Working
+	NodeJS       : Installed & Working
+	S.IO         : Installed & Working
+	Media queries: Working (27/7/17)
+	Mobile Compet: Working (27/7/17)
+
+	Last Edited : 18/7/17 206pm - Marcus Low
+	-->
+
+
+<!-- navbar stuff -->
+		<nav class="navbar navbar-toggleable-md navbar-custom navbar-inverse marcus-navcolor ">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand marcus-navbarlogo-orange" href="#">Nexus Network&nbsp;&nbsp;</a>
+			<div class="collapse navbar-collapse" id="navbarNav">
+
+			<ul class="navbar-nav">
+			<!-- Navbar items. Links as ahref here.-->
+				<li class="nav-item">
+					<a class="nav-link" href="../index.html">Home<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../whysmartnation/WhySmartNation.html">Why Smart Nation?<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../EncryptionExampleMailbox/login page/loginpage.html">Community<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/generalchat.html">&nbsp;Chat&nbsp;<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/Events/Events.html">Events<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../Articles/ArticlesRavamped.html">Articles<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../Customer Support/About us.html">About Us<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/Customer Support/About us.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Need help?
+					</a>
+					<div style="background-color:#ebebeb;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					  <a class="dropdown-item" href="../Customer Support/Contact us.html">Contact Us</a>
+					  <a class="dropdown-item" href="#">FAQ</a>
+					  <a class="dropdown-item" href="../sitemap/Sitemap.html">Sitemap</a>
+					  <a class="dropdown-item" href="http://localhost:5000/privacypolicy/privacypolicy.html">Privacy Policy</a>
+					</div>
+				 </li>
+				
+				</ul>
+				<div class="logout-container"style="float:right;">
+				<a href="http://localhost:5000/EncryptionExampleMailbox/login page/loginpage.html"><button id="logout" class="btn" onclick="onLogout()">Logout</button></a>
+			</div>
+			</div>
+			</nav>
+<!-- navbar html END -->
+			
+			<!--Script for bottom form-->
+		<script>
+		function mydate(){
+		return Date();
+			}
+		function AvanonSubmit()	{
+		queryInfo = localStorage.getItem("queryInfo");
+		
+		if(queryInfo == null){
+		queryInfo= [];
+		}
+		else {
+		queryInfo= JSON.parse(localStorage["queryInfo"]);
+		}
+		
+		var subject= document.getElementById("avansubject").value;
+		var query= document.getElementById("avanquery").value;
+		var time= mydate();
+		
+		var VanallFormResult= {"subjectname":subject, "questioninfo":query, "time" : time};
+		queryInfo.push(VanallFormResult);
+		localStorage["queryInfo"]= JSON.stringify(queryInfo);
+			}
+		</script>
+			
+			
+			<div class="container">
+			<br>
+				<p style="text-align:center; font-size:20px;margin-top:3%;">Nexus Network has a lot of functionality and fun available for its users! Read up here to see if others commonly experience the difficulties you are having to unlock as much potential as you can from Nexus Network.</p>
+				<hr style="width:80%;margin-left:10%;"></hr>
+				<p style="text-align:center;font-size:20px;">The FAQ page is updated as time goes on and as new features are implemented. Check back if you ever are in doubt!</p>
+				<br>
+			</div>
+			
+			
+		<!--General FAQ -->	
+		<p class="Avan-FAQ-HeaderStyle">General</p>
+		
+		
+		<!--Accordion for General-->
+		<div class="container">
+		<div id="AvanGeneralaccordion" role="tablist" aria-multiselectable="true">
+		  <div class="card">
+			<div class="card-header" role="tab" id="AvanheadingOne">
+			  <h5 class="mb-0">
+				<a data-toggle="collapse" data-parent="#AvanGeneralaccordion" href="#AvanGeneralCollapse" aria-expanded="true" aria-controls="collapseOne">
+				  What is Nexus Network for? 
+				</a>
+			  </h5>
+			</div>
+
+			<div id="AvanGeneralCollapse" class="collapse" role="tabpanel" aria-labelledby="AvanheadingOne">
+			  <div class="card-block">
+				Nexus Network is created to help users share information on Smart Nation. Here, users can gather to share their views on Smart Nation and therefore discuss their ideas for the future.
+			  </div>
+			</div>
+		  </div>
+		  <div class="card">
+			<div class="card-header" role="tab" id="headingTwo">
+			  <h5 class="mb-0">
+				<a class="collapsed" data-toggle="collapse" data-parent="#AvanGeneralaccordion" href="#AvancollapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				  How are we connecting users to embracing S/N?
+				</a>
+			  </h5>
+			</div>
+			<div id="AvancollapseTwo" class="collapse" role="tabpanel" aria-labelledby="AvanheadingTwo">
+			  <div class="card-block">
+				We have two distinct systems for people to communicate. We have a forum that allows long-term discussion, allowing people to view the discussion and express their views. We also have a chatroom, for people who want to have real time discussions on the fly. 
+			  </div>
+			</div>
+		  </div>
+		  <div class="card">
+			<div class="card-header" role="tab" id="headingThree">
+			  <h5 class="mb-0">
+				<a class="collapsed" data-toggle="collapse" data-parent="#AvanGeneralaccordion" href="#AvancollapseThree" aria-expanded="false" aria-controls="collapseThree">
+				  What is the code of conduct when using the platform?
+				</a>
+			  </h5>
+			</div>
+			<div id="AvancollapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+			  <div class="card-block">
+				The Nexus Network is an area created so that people can have an easier time accessing information and to create discussions. <br>
+				We will hope that you, upon loading into the Nexus Network, will abide by these rules. Anyone found breaking these rules will be reviewed on a case by case basis.<br>
+				1) Do not act aggressively against any other user. This includes racial swearing, violence and sexual harrassment. 
+				<br>
+				2) Do not discriminate. This includes racial/ethnic swearing, harassment.<br>
+				3) Do not advertise in any chat. This is a platform solely for users to have healthy discussions about Smart Nation, not a platform to use for a business venture. 
+			  </div>
+			</div>
+		  </div>
+		</div>
+		</div>
+		
+		
+		<!--Accounts FAQ -->	
+		<p class="Avan-FAQ-HeaderStyle">Accounts</p>	
+		<div class="container">
+		<div id="AvanAccountsaccordion" role="tablist" aria-multiselectable="true">
+  
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#AvanAccountsaccordion" href="#AvanAccountscollapseOne" aria-expanded="true" aria-controls="collapseOne">
+          How do I create an account?
+        </a>
+      </h5>
+    </div>
+
+    <div id="AvanAccountscollapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">
+        At our login page, there will be a link that will lead you to the sign up page to create an account. It is located under our login function.
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#AvanAccountsaccordion" href="#AvanAccountscollapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          My account has been banned! What should I do?
+        </a>
+      </h5>
+    </div>
+    <div id="AvanAccountscollapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="card-block">
+        You can approach one of our admins by sending them a mail in your profile settings. We will then send you details on why you have been banned.
+      </div>
+    </div>
+  </div>
+ 
+ <div class="card">
+    <div class="card-header" role="tab" id="headingThree">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#AvanAccountsaccordion" href="#AvanAccountscollapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Reporting users
+        </a>
+      </h5>
+    </div>
+    <div id="AvanAccountscollapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="card-block">
+        There is a report function in the chatroom, just take a screenshot of the chat. The administrators will follow up shortly.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingFour">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#AvanAccountsaccordion" href="#AvanAccountscollapseFour" aria-expanded="false" aria-controls="collapseOne">
+          How do I change my password?
+        </a>
+      </h5>
+    </div>
+
+    <div id="AvanAccountscollapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="card-block">
+        Your password can be changed at the settings. Go to the top left to change your password! Do take note that your passwords have to be different from your current password! 
+      </div>
+    </div>
+  </div>
+ 
+ <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#AvanAccountsaccordion" href="#AvanAccountscollapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Can I change my username?
+        </a>
+      </h5>
+    </div>
+
+    <div id="AvanAccountscollapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="card-block">
+        Yes you can! Do take note that you can only change your username to one that has not been already taken.
+      </div>
+    </div>
+  </div>
+ 
+ <div class="card">
+    <div class="card-header" role="tab" id="headingSix">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#AvanAccountsaccordion" href="#AvanAccountscollapseSix" aria-expanded="false" aria-controls="collapseOne">
+          What usernames are allowed?
+        </a>
+      </h5>
+    </div>
+
+    <div id="AvanAccountscollapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+      <div class="card-block">
+        As long as it does not violate these two rules, you are free to use your username!
+		<br>
+		1) No Racial or Ethnic Slurs in your name.
+		<br>
+		2) No Swear words in your username.
+      </div>
+    </div>
+  </div>
+		</div>
+		</div>
+		
+		
+		<!--Chats FAQ -->
+		<p class="Avan-FAQ-HeaderStyle">Chats</p>
+		
+		
+		<div class="container">
+		<div id="AvanChatsaccordion" role="tablist" aria-multiselectable="true">
+		
+		<div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#AvanChatsaccordion" href="#AvanChatscollapseOne" aria-expanded="true" aria-controls="collapseOne">
+          What is the chat feature for?
+        </a>
+      </h5>
+    </div>
+
+    <div id="AvanChatscollapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">
+        Our chat feature allows people to gather in a real-time discussion of Smart Nation!
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#AvanChatsaccordion" href="#AvanChatscollapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          How do I join a chat?
+        </a>
+      </h5>
+    </div>
+    <div id="AvanChatscollapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="card-block">
+        First you must have an account and logged in. If not, proceed to our login page.<br>
+		To join a chat room, you just have to click on one of the chat channels on the left bar and you're ready to go!
+      </div>
+    </div>
+  </div>
+ 
+ <div class="card">
+    <div class="card-header" role="tab" id="headingThree">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#AvanChatsaccordion" href="#AvanChatscollapseThree" aria-expanded="false" aria-controls="collapseThree">
+          How do I exit a chatroom?
+        </a>
+      </h5>
+    </div>
+    <div id="AvanChatscollapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="card-block">
+        Press the power icon on the top of the page and you're ready to go.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingFour">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#AvanChatsaccordion" href="#AvanChatscollapseFour" aria-expanded="false" aria-controls="collapseOne">
+          Private Messaging. Can I do that?
+        </a>
+      </h5>
+    </div>
+
+    <div id="AvanChatscollapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="card-block">
+        Yes you can!<br> There is a bar at the bottom of the page. Click it to enable a dropdown, and the dropdown should show two inputs for one to put in. Type the username of whoever you want to message in the first box, and the message you want to send in the second box! 
+      </div>
+    </div>
+  </div>
+		</div>
+		</div>
+		<hr>
+		<!--Didn't find your Question form. -->
+		<div class="container">
+		
+		<!--Start of form 1) Subject, 2) Message -->
+		<form action="#" method="get" onsubmit="AvanonSubmit();" id="Avanform">
+		<fieldset class="form-group">
+		<legend style="text-align:center;">Didn't find your question here?</legend>
+		
+		<!--First form filled, required -->
+		<div class="form-group">
+		<label for="avanquery">Example select</label>
+    <select class="form-control" id="avansubject" title="Select your subject!" placeholder="Select a subject!" required">
+      <option value="General">General</option>
+      <option value="Accounts">Accounts</option>
+      <option value="Chats">Chats</option>
+	  <option value="Others">Others</option>
+    </select>
+		</div>
+		
+		<div class="form-group">
+		<label for="query"> Question</label>
+		<textarea class="form-control" cols="50" rows="12" title="Please enter your question here." placeholder="Please enter your question here." id="avanquery" required></textarea><br>
+		</div>
+		
+		
+		</fieldset>
+		<div style="text-align:center;">
+		<button class="btn btn-primary" type="submit">Submit</button>
+		</div>
+		</form>
+		
+		
+		</div>
+	<!-- footer content -->
+		<div style="padding:0;"class="footeravan container-fluid">
+			
+			<!-- top container for missions tatement -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="footeravan-header col-lg-12">
+					<h1>"Mission Statement"</h1>
+					<h4 style="width:70%;margin-left:15%;text-align:center;">To get Singaporeans to embrace Smart Nation and understand what it is, mainly
+					adults and teenagers who are reliant on IT daily, educating them on what Smart Nation is, as well as what it's initiatives and benefits are. 
+					At the same time, educate them on the importance of online security in smart nation and safe practices to take to protect themselves online.</h4>
+					</div>
+				</div>
+			</div><!-- closing top container mission statement -->
+			
+			<!-- bottom container for info and newsletter -->
+			<div class="container-fluid footeravan-bottom">
+				<div class="row">
+				<!-- left side, lg8 -->
+					<div class="col-lg-8 col-md-8 col-sm-12 footeravan-bottom-left">
+					<div class="avanfooter-location"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Location: Suntec City
+					<br> 3E Temasek Blvd  
+					<br> Singapore 038984
+					<br>#5-6748
+					
+					
+					</p>
+					</div>
+					<div class="avanfooter-contact"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Contact: 
+					<br> Telephone: 6384 4386
+					<br> Email: smartnation@moe.edu.sg
+					</p>
+					
+					</div>
+					<div class="container">
+					<div class="row">
+					
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.facebook.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-facebook-official" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://twitter.com/smartntation" class="marcus-sizer"><i style="color:orange; "class="fa fa-twitter-square" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.instagram.com/smartntation/" class="marcus-sizer"><i style="color:orange; "class="fa fa-instagram" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.snapchat.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-snapchat-square" aria-hidden="true"></i></a></div>
+					
+					</div>
+					</div>
+					</div>
+				<!-- right side, lg4 -->		
+					<div class="col-lg-4 col-md-4 col-sm-12 footeravan-bottom-right">
+						<p>Enter your email here to subscribe to our Newsletter!</p>
+						<form>
+							<input type="text" style="background-color:#c7f8f8;">
+						</form>
+							<button class="btn btn-primary"onClick="">Submit</button>
+					</div>
+			</div>
+			
+		</div>
+		</div><!-- closing footer -->
+			
+			
+		
+			
+			<!-- DO NOT TOUCH!!!! -->
+			 <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Project home mpage - By Marcus Low">
+	<link rel="stylesheet" href="CSS for contact us.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+		<!-- Google fonts -->
+		<!-- imported in CSS -->
+    <!-- Amazing icons thingy site Mr Heng recommended -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script>
+		
+		
+	var usersInfo;
+	
+	</script>
+  
+	<title>Contact Us</title>
+	
+	</head>
+		<body>
+		    <!--
+	Font-awesome : Working
+	Bootstrap    : Working
+	Jquery       : Working
+	NodeJS       : Installed & Working
+	S.IO         : Installed & Working
+	Media queries: Working (27/7/17)
+	Mobile Compet: Working (27/7/17)
+
+	Last Edited : 18/7/17 206pm - Marcus Low
+	-->
+
+
+<!-- navbar stuff -->
+		<nav class="navbar navbar-toggleable-md navbar-custom navbar-inverse marcus-navcolor fixed-top">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand marcus-navbarlogo-orange" href="#">Nexus Network&nbsp;&nbsp;</a>
+			<div class="collapse navbar-collapse" id="navbarNav">
+			
+			<ul class="navbar-nav">
+			<!-- Navbar items. Links as ahref here.-->
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/index.html">Home<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/whysmartnation/WhySmartNation.html">Why Smart Nation?<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/EncryptionExampleMailbox/login page/loginpage.html">Community<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/generalchat.html">&nbsp;Chat&nbsp;<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/Events/Events.html">Events<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:5000/Articles/ArticlesRavamped.html">Articles<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a style="color:white;" class="nav-link" href="/Customer Support/About us.html">About Us<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="http://localhost:5000/Customer Support/About us.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Need help?
+					</a>
+					<div style="background-color:#ebebeb;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					  <a class="dropdown-item" href="http://localhost:5000/Customer Support/Contact us.html">Contact Us</a>
+					  <a class="dropdown-item" href="http://localhost:5000/faq/faq.html">FAQ</a>
+					  <a class="dropdown-item" href="http://localhost:5000/sitemap/Sitemap.html">Sitemap</a>
+					 <a class="dropdown-item" href="http://localhost:5000/privacypolicy/privacypolicy.html">Privacy Policy</a>
+					</div>
+				 </li>
+				
+				</ul>
+			</div>
+			</nav>
+<!-- navbar html END -->
+		
+		<img src="smartnation.jpg" class="kxpic"/>
+		
+	
+		<script>
+		function myDate(){
+		return Date();
+		}
+		function onSubmitPressed() {
+			usersInfo = localStorage.getItem("usersInfo");
+			
+			if(usersInfo == null){
+			usersInfo = [];
+			}
+			else{
+				usersInfo= JSON.parse(localStorage["usersInfo"]);
+				}
+				
+			var name= document.getElementById("kunxiangname").value;
+			var age= document.getElementById("kunxiangage").value;
+			var gender= document.getElementById("kunxianggender").value;
+			var email= document.getElementById("kunxiangemail").value;
+			var number= document.getElementById("kunxiangnumber").value;
+			var datalist= document.getElementById("kunxiangdatalist").value;
+			var feedback= document.getElementById("kunxiangfeedback").value;
+			var time = myDate();
+			
+			var allFormResult={"username": name, "userage": age, "usergender" : gender, "useremail" : email, "usernumber" : number, "userdatalist" : datalist, "userfeedback" : feedback, "time" : time}; 
+			usersInfo.push(allFormResult);
+			localStorage["usersInfo"] = JSON.stringify(usersInfo);
+			}
+			
+		
+			
+		</script>
+		<hr>
+		<h2 id="kxhead">Our Office Location</h2><br>
+	<div class="container">
+		<div class="row">
+		<div class="col-sm-6" id="first">
+		<h2>Headquarter @ Suntec City</h2>
+		<p>Smart Nation Education Centre Pte Ltd</p>
+		<p>Suntec City</p>
+		<p>3E Temasek Blvd Singapore 038984 Temasek Blvd <br>#5-6748<br> Singapore 038984</p>
+		<p>T: 6384 4836</p>
+		<p>Email: smartnation@moe.edu.sg</p>
+		</div>
+		
+	<div class="col-sm-1"></div>
+    <div class="col-sm-5" id="map1">
+	<script>
+	/* this function is to set the coordinates on the map */
+      function initMap() {
+        var sunteccity = {lat: 1.2951, lng: 103.8599};
+        var map = new google.maps.Map(document.getElementById("map1"), {
+          zoom: 18,
+          center: sunteccity
+        });
+		/* this is to set a marker at the coordinate set above */
+        var marker = new google.maps.Marker({
+          map: map,
+		  position: sunteccity
+         
+        });
+      }
+    </script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTXo2C0e0CH5jmGI6oG4MYJBnVlne8i3k&callback=initMap">
+	</script>
+	</div>
+		</div>
+	</div>
+	<hr>
+	<div class="container">
+		<div class="row"> 
+			<div class="col-sm-5" id="second">
+			<h2>Serangoon Branch</h2>
+			<p>23 Serangoon Central<br> #2-6272 <br> Singapore 556083</p>
+			<p>T: 6384 4836</p>
+			<p>Email: smartnation@moe.edu.sg</p>
+				<div class="map2">
+				<a href="Map 2.html" target="blank"><img src="Nex.PNG" id="map2"></a>
+				</div>
+			</div>
+			<div class="col-sm-2"></div>
+			<div class="col-sm-5" id="third">
+			<h2>Ang Mo Kio Branch</h2>
+			<p>53 Ang Mo Kio Avenue 3<br> #3-7382 <br> Singapore 569933</p>
+			<p>T: 6384 4836</p>
+			<p>Email: smartnation@moe.edu.sg</p>
+				<div class="map3">
+				<a href="Map 3.html" target="blank"><img src="Amk.PNG" id="map3"></a>
+				</div>	
+			</div>	
+		</div>	
+	</div>
+	<br>
+	<p id="kxword">Click the maps to view full map</p>
+
+		<hr>
+		<h2 class="kxheading">Give us your feedback or message!</h2>
+		<div class="container">
+			<form action="Thankyou.html" method="get" onsubmit="onSubmitPressed();" id="kunxiangform">
+			<fieldset class="form-group">
+			<legend>Personal Information</legend>
+		
+			<div class="form-group">
+			<label for="name">Name:</label><br> 
+			<input class="form-control" type="text" name="name" id="kunxiangname" title=" Please enter your real name" placeholder="Please enter your name" required><br>
+			</div>
+		
+			<div class="form-group">
+			<label for="age">Age:</label><br> 
+			<input class="form-control" type="number" name="age" id="kunxiangage" title="Please enter your age" placeholder="Please enter your age" min="1" max="120" required><br>
+			</div>
+		
+			<div>
+			<div class="form-group">
+			<label for="gender">Gender:</label><br>
+			<input list="kxgender" class="form-control" id="kunxianggender" title="Please enter your gender" placeholder="Please enter your gender" name="gender" required><br>
+			<datalist id="kxgender">
+			<option value="Male">
+			<option value="Female">
+			</datalist>
+			
+			</div>
+		
+			<div class="form-group">
+			<label for="email">Email:</label><br> 
+			<input class="form-control" type="email" name="email" title="Please enter your email" placeholder="Please enter your email" id="kunxiangemail" required><br>
+			</div>
+		
+			<div class="form-group">
+			<label for="handphonenumber">Handphone Number:</label><br> 
+			<input class="form-control" type="text" name="handphonenumber" title="Please enter only 8 digits" placeholder="Please enter your number" id="kunxiangnumber" maxlength="8" required><br>
+			</div>
+			
+			<div class="form-group">
+			<label for="typeoffeedback">Type of feedback:</label>
+			<input list="kxdatalist" class="form-control" placeholder="Please enter type of feedback" title="Please enter type of feedback" id="kunxiangdatalist" name="typeOfFeedback" required><br>
+			<datalist id="kxdatalist">
+			<option value="Technical problem">
+			<option value="Suggestions">
+			<option value="Administrations">
+			<option value="Website aesthetics">
+			<option value="Message">
+			</datalist>
+			</div>
+		
+			<div class="form-group">
+			<label for="feedback">Feedback/Message:</label><br>
+			<textarea class="form-control" cols="50" rows="12" title="Please tell us your feedback" placeholder="Please enter feedback" id="kunxiangfeedback" required ></textarea><br>
+			</div>
+			</fieldset>	
+			<button class="btn btn-primary" type="submit">Submit</button>
+			</form>
+		</div>
+		
+		
+		<hr>
+		<div style="padding:0;"class="footeravan container-fluid">
+			
+			<!-- top container for missions tatement -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="footeravan-header col-lg-12">
+					<h1>"Mission Statement"</h1>
+					<h4 style="width:70%;margin-left:15%;text-align:center;">To get Singaporeans to embrace Smart Nation and understand what it is, mainly
+					adults and teenagers who are reliant on IT daily, educating them on what Smart Nation is, as well as what it's initiatives and benefits are. 
+					At the same time, educate them on the importance of online security in smart nation and safe practices to take to protect themselves online.</h4>
+					</div>
+				</div>
+			</div><!-- closing top container mission statement -->
+			
+			<!-- bottom container for info and newsletter -->
+			<div class="container-fluid footeravan-bottom">
+				<div class="row">
+				<!-- left side, lg8 -->
+					<div class="col-lg-8 col-md-8 col-sm-12 footeravan-bottom-left">
+					<div class="avanfooter-location"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Location: Suntec City
+					<br> 3E Temasek Blvd  
+					<br> Singapore 038984
+					<br>#5-6748
+					
+					
+					</p>
+					</div>
+					<div class="avanfooter-contact"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Contact: 
+					<br> Telephone: 6384 4386
+					<br> Email: smartnation@moe.edu.sg
+					</p>
+					
+					</div>
+					<div class="container">
+					<div class="row">
+					
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.facebook.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-facebook-official" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://twitter.com/smartntation" class="marcus-sizer"><i style="color:orange; "class="fa fa-twitter-square" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.instagram.com/smartntation/" class="marcus-sizer"><i style="color:orange; "class="fa fa-instagram" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="https://www.snapchat.com/" class="marcus-sizer"><i style="color:orange; "class="fa fa-snapchat-square" aria-hidden="true"></i></a></div>
+					
+					</div>
+					</div>
+					</div>
+				<!-- right side, lg4 -->		
+					<div class="col-lg-4 col-md-4 col-sm-12 footeravan-bottom-right">
+						<p>Enter your email here to subscribe to our Newsletter!</p>
+						<form>
+							<input type="text" style="background-color:#c7f8f8;">
+							<button class="btn btn-primary"onClick="">Submit</button>
+						</form>
+							
+					</div>
+			</div>
+			
+		</div>
+		</div><!-- closing footer -->
+			
+			
+			
+			
+			<!-- DO NOT TOUCH!!!! -->
+			 <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.boo
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+		
+		</body>
+</html>

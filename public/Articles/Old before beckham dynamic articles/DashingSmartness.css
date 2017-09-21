@@ -1,0 +1,132 @@
+/* NAV BAR and FOOTER css 
+
+	COPY PASTE THIS TO YOUR CODE. 
+	Last updated
+	29/7/2017 -Marcus Low 
+	
+	changlog (ignore this if youre not marcus, for my reference only to see ur version.)
+	- added css to footer icons 
+	- added #333 orange feel for both during sat morning 
+	
+*/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900');
+html, body {width:100%; padding:0; margin:0;}
+
+body{
+	font-family:'Source Sans Pro', sans-serif, "Helvetica Neue",Helvetica,Arial;
+}
+/* NAVBAR */
+/* change the background color */
+.navbar-custom {
+	background-color:rgba(0,0,0,0.5); /* NAVBAR COLOR!!!! orignal orange :#ff5500;*/
+	border-bottom:3px solid orange;
+	z-index="-1";
+
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+	color: rgba(255,255,255,.3);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+	color: rgba(255,255,255,.5);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+	color: #ffffff;
+}
+.marcus-navcolor:hover{
+	transition:0.3s;
+	background:rgba(0,0,0,0.85);
+	color:orange;
+}
+.marcus-navbarlogo-orange{
+	border-right:3px solid orange;
+}
+/* Navbar end */
+
+/* FOOTER */
+/* FOOTER CSS */
+.footeravan {
+	/* leave class fotteravan empty for now */
+}
+/* mission statement */
+.footeravan-header{
+	text-align:center;
+	padding:3%;
+	background-color:#333;
+	color:white;
+	border-top:1px solid orange;
+}
+.footeravan-bottom{
+	position:fixed;
+	bottom:0;
+			
+}
+.footeravan-bottom-left{
+	padding:5%;
+	background-color:#333;
+	color:orange;
+	border-top:1px solid orange;
+	border-right:1px solid orange;
+	}
+.footeravan-bottom-right{
+	padding:5%;
+	background-color:#333;
+	text-align:center;
+	border-top:1px solid orange;
+	color:white;
+}
+
+.avanfooter-contact:hover{
+	color:white;
+	background-color:#333;
+	transition:0.3s;
+}
+.avanfooter-location:hover{
+	color:white;
+	background-color:#333;
+		transition:0.3s;
+}
+.marcus-sizer{
+	font-size:55px;
+}
+.avanfooter-contact{
+	padding-left:2.5%;
+}
+.avanfooter-location{
+	padding-left:2.5%;
+}
+.article-avan-1 {
+	border:solid orange 2px;
+	padding:0%;
+	position:inherit;
+	background-color:rgba(0,0,0,0.35);
+}
+	.marcus-pmleeimg-nice-spacing{
+	margin-top:15px;
+}
+.marcus-pmlee-top{
+	bottom:0;
+	position:absolute;
+	background-color:rgba(0,0,0,0.35);
+	width:100%;
+	margin:0;
+	padding:1%;
+	color:white;
+	font-weight:600;
+	font-size:20px;
+}
+.marcus-pmlee-bottom{
+	bottom:0;
+	position:absolute;
+	background-color:rgba(0,0,0,0.35);
+	width:100%;
+	margin:0;
+	padding:1%;
+	color:white;
+	font-weight:500;
+	font-size:13px;
+}

@@ -1,0 +1,187 @@
+<!-- navbar stuff -->
+		<nav class="navbar navbar-toggleable-md navbar-custom navbar-inverse marcus-navcolor">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand marcus-navbarlogo-orange" href="#">Nexus Network&nbsp;&nbsp;</a>
+			<div class="collapse navbar-collapse" id="navbarNav">
+
+			<ul class="navbar-nav">
+			<!-- Navbar items. Links as ahref here.-->
+				<li class="nav-item">
+					<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Community<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Articles<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About Us<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">***FAQ<span class="sr-only">(current)</span></a>
+				</li>
+				</ul>
+			</div>
+			</nav>
+<!-- navbar html END -->
+
+    <div class="container-fluid marcus-chat-top">
+      <div class="row">
+
+        <div style=""class="col-lg-3">
+          <div class="marcus-you-joined-chat-room">
+            <h3>You're Offline...</h3>
+            <p id="chat-room-top-left">join a room?</p>
+          </div>
+        </div>
+
+        <div  style=""class="col-lg-9">
+          <div class="marcus-chat-room-name-header">
+            <h2><span id="chat-room-top-right">#Offline</span>&nbsp;&nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-power-off marcus-poweroff-edit"></i></a></h2>
+
+          </div>
+        </div>
+
+      </div><!-- closing row -->
+    </div><!-- closing marcus-chat-top -->
+
+    <div class="container-fluid marcus-chat-channels-and-ui">
+      <div class="row">
+
+        <div style=""class="col-lg-3  marcus-side-color">
+
+          <div class="marcus-chat-tip">
+            <div class="marcus-chat-tip-inside">
+              <span id="chat-icon-bubble"><i class="fa fa-commenting"></i></span>
+              <h4>tip: joining a channel is where the fun starts!</h4>
+            </div><!-- marcus-chat-tip-inside -->
+          </div><!-- marcus-chat-tip -->
+
+          <div class="marcus-chat-channels">
+
+            <div class="chat-channels-header">
+              <h2>Chat Channels</h2>
+            </div>
+
+              <div class="a-chat-channel">
+                <a href=""><h4><i class="fa fa-volume-up"></i>&nbsp;#General</h4></a>
+              </div><!-- a-chat-channel -->
+              <div class="a-chat-channel">
+                <a href=""><h4><i class="fa fa-volume-up"></i>&nbsp;#Collaboration</h4></a>
+              </div><!-- a-chat-channel -->
+              <div class="a-chat-channel">
+                <a href=""><h4><i class="fa fa-volume-up"></i>&nbsp;#Questions</h4></a>
+              </div><!-- a-chat-channel -->
+              <div class="a-chat-channel">
+                <a href=""><h4><i class="fa fa-volume-up"></i>&nbsp;#Fun Talk</h4></a>
+              </div><!-- a-chat-channel -->
+              <div class="a-chat-channel">
+                <a href=""><h4><i class="fa fa-volume-up"></i>&nbsp;#Events</h4></a>
+              </div><!-- a-chat-channel -->
+              <div class="a-chat-channel">
+                <a href=""><h4><i class="fa fa-volume-up"></i>&nbsp;#optional addon</h4></a>
+              </div><!-- a-chat-channel -->
+              <div class="a-chat-channel">
+                <a href=""><h4><i class="fa fa-volume-up"></i>&nbsp;#optional addon</h4></a>
+              </div><!-- a-chat-channel -->
+              <div class="a-chat-channel">
+                <a href=""><h4><i class="fa fa-volume-up"></i>&nbsp;#optional addon</h4></a>
+              </div><!-- a-chat-channel -->
+
+          </div><!-- marcus-chat-channels -->
+        </div><!-- col-lg-3 -->
+
+        <div class="col-lg-9 marcus-the-actual-chat">
+		<!--
+		     <div id="mario-chat">
+
+				  <div id="chat-window">
+					<div id="output"></div>
+					<div id="feedback"></div>--><!-- name is typing a message -->
+				 <!-- </div>--><!-- close chat-window -->
+				  <!--
+				<input id="handle" type="text" placeholder="Handle" disabled/>
+				<input id="message" type="text" placeholder="Message"/>
+				<button id="send">Send</button>
+
+
+				<div class="send-a-pm-collapse">
+				  <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#pmbox" aria-expanded="false" aria-controls="pmbox">
+					Private Message
+				  </button>
+				</div>
+				<div class="collapse" id="pmbox">
+				  <div class="card card-block">
+					<input id="pm-to" type="text" placeholder="username to pm">
+				<input id="new-pm" type="text" placeholder="private message content">
+				<button class="send-marcus-pm"id="send-pm">send private message</button>
+				  </div>
+				</div>-->
+				<!--
+				<input id="pm-to" type="text" placeholder="username to pm">
+				<input id="new-pm" type="text" placeholder="private message content">
+				<button id="send-pm">sendpm</button>-->
+        </div>
+
+      </div><!-- closing row -->
+    </div><!-- marcus-chat-channels-and-ui -->
+
+	<!-- footer content -->
+		<div style="padding:0;"class="footeravan container-fluid">
+
+			<!-- top container for missions tatement -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="footeravan-header col-lg-12">
+					<h1>"Mission Statement"</h1>
+					</div>
+				</div>
+			</div><!-- closing top container mission statement -->
+
+			<!-- bottom container for info and newsletter -->
+			<div class="container-fluid footeravan-bottom">
+				<div class="row">
+				<!-- left side, lg8 -->
+					<div class="col-lg-8 col-md-8 col-sm-12 footeravan-bottom-left">
+					<div class="avanfooter-location"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Location: Suntec City
+					<br> 3E Temasek Blvd
+					<br> Singapore 038984
+					<br>#5-6748
+
+
+					</p>
+					</div>
+					<div class="avanfooter-contact"style="border-left: solid orange 3px;">
+					<p style="padding-left:5px;"> Contact:
+					<br> Telephone: 6384 4386
+					<br> Email: smartnation@moe.edu.sg
+					</p>
+
+					</div>
+					<div class="container">
+					<div class="row">
+
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="#" class="marcus-sizer"><i style="color:orange; "class="fa fa-facebook-official" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="#" class="marcus-sizer"><i style="color:orange; "class="fa fa-twitter-square" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="#" class="marcus-sizer"><i style="color:orange; "class="fa fa-instagram" aria-hidden="true"></i></a></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-3"><a href="#" class="marcus-sizer"><i style="color:orange; "class="fa fa-snapchat-square" aria-hidden="true"></i></a></div>
+
+					</div>
+					</div>
+					</div>
+				<!-- right side, lg4 -->
+					<div class="col-lg-4 col-md-4 col-sm-12 footeravan-bottom-right">
+						<p>Enter your email here to subscribe to our Newsletter!</p>
+						<form>
+							<input type="text" style="background-color:#c7f8f8;">
+						</form>
+							<button class="btn btn-primary"onClick="">Submit</button>
+					</div>
+			</div>
+
+		</div>
+		</div><!-- closing footer -->
